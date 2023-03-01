@@ -24,15 +24,10 @@ pipeline {
             steps {
                 echo 'Testing..'
                 script {
-                    withCredentials([string(credentialsId: 'sas-judo-backend-test', variable: 'TEST_CREDENTIALS')]) {
-                        sh('''
-                            echo "API_URL=http://localhost:8000" > ./.env
-                        ''')
-                        sh('''
-                            pnpm run coverage
-                        ''')
-                        echo 'Finished tests!'
-                    }
+                    sh('''
+                        pnpm run coverage
+                    ''')
+                    echo 'Finished tests!'
                 }
             }
         }
