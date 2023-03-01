@@ -1,5 +1,5 @@
 <template>
-  <v-card  color="grey-lighten-3" >
+  <v-card color="grey-lighten-3">
     <v-container id="features" class="text-center py-12">
       <h2 class="display-2 font-weight-bold mb-3">Mes compétences</h2>
 
@@ -27,8 +27,19 @@
             cols="12"
             md="3"
           >
-            <v-card class="py-12 px-4" color="grey-lighten-5" flat max-height="300" min-height="300">
-              <v-avatar v-if="type === 'icon'" color="primary" size="88" rounded="2">
+            <v-card
+              class="py-12 px-4"
+              color="grey-lighten-5"
+              flat
+              max-height="300"
+              min-height="300"
+            >
+              <v-avatar
+                v-if="type === 'icon'"
+                color="primary"
+                size="88"
+                rounded="2"
+              >
                 <v-icon size="x-large">{{ src }}</v-icon>
               </v-avatar>
               <v-avatar v-else color="primary" size="88" rounded="2">
@@ -48,7 +59,16 @@
   </v-card>
 </template>
 <script setup>
-import { mdiVuejs, mdiNuxt, mdiVuetify, mdiLanguageRuby, mdiLanguageRubyOnRails, mdiDatabase, mdiLaravel, mdiSymfony } from "@mdi/js";
+import {
+  mdiVuejs,
+  mdiNuxt,
+  mdiVuetify,
+  mdiLanguageRuby,
+  mdiLanguageRubyOnRails,
+  mdiDatabase,
+  mdiLaravel,
+  mdiSymfony,
+} from "@mdi/js";
 
 const skills = [
   {

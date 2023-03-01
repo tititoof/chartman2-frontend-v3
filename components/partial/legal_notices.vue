@@ -45,7 +45,7 @@
       </v-col>
       <v-col cols="6" class="font-weight-black">
         <v-btn
-          :href="$t('legal_notices.texts.website')"
+          :href="$sanitize($t('legal_notices.texts.website'))"
           variant="plain"
           color="deep-purple-lighten-5"
           dark
@@ -73,7 +73,7 @@
         {{ $t("legal_notices.texts.hosting") }} <br />
         {{ $t("legal_notices.texts.hosting_address") }}<br />
         <v-btn
-          :href="$t('legal_notices.texts.hosting_website')"
+          :href="$sanitize($t('legal_notices.texts.hosting_website'))"
           target="_blank"
           variant="plain"
           color="deep-purple-lighten-5"

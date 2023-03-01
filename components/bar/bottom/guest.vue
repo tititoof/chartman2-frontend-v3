@@ -6,7 +6,7 @@
           <v-btn
             v-for="(s, i) in social"
             :key="i"
-            :href="s.route"
+            :href="$sanitize(s.route)"
             color="#000000"
             icon
             target="_blank"
