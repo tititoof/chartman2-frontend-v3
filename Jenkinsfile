@@ -12,8 +12,8 @@ pipeline {
                     echo 'Building..'
                     sh('''
                         rm -Rf ./node_modules
-                        yarn install
-                        yarn build    
+                        pnpm install
+                        pnpm build
                     ''')
                     
                 }
@@ -27,9 +27,9 @@ pipeline {
                         sh('''
                             echo "API_URL=http://localhost:8000" > ./.env
                         ''')
-                        sh("yarn start &")
+                        sh("pnpm start &")
                         sh('''
-                            yarn run coverage
+                            pnpm run coverage
                         ''')
                         echo 'Finished tests!'
                     }
@@ -119,8 +119,8 @@ pipeline {
                         sh '''
                             ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 -p2222 $SERVER_SSH@$SERVER_IP "[[ -d /var/www/websites/chartman2/frontend-v3 ]] && echo 'Directory exist' || git clone https://$GITHUB_CREDENTIALS@github.com/tititoof/chartman2-frontend.git /var/www/websites/chartman2/frontend"
                             ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 -p2222 $SERVER_SSH@$SERVER_IP "cd /var/www/websites/chartman2/frontend-v3 && git fetch && git checkout main && git pull"
-                            ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 -p2222 $SERVER_SSH@$SERVER_IP "cd /var/www/websites/chartman2/frontend-v3 && yarn install"
-                            ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 -p2222 $SERVER_SSH@$SERVER_IP "cd /var/www/websites/chartman2/frontend-v3 && yarn build"
+                            ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 -p2222 $SERVER_SSH@$SERVER_IP "cd /var/www/websites/chartman2/frontend-v3 && pnpm install"
+                            ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 -p2222 $SERVER_SSH@$SERVER_IP "cd /var/www/websites/chartman2/frontend-v3 && pnpm build"
                         '''
                     }
                 }
