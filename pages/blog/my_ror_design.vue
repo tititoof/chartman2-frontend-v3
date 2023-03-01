@@ -1,6 +1,6 @@
 <template>
   <v-responsive id="ror-design-introduction" >
-    <v-row>
+    <!-- <v-row>
       <v-col col="12">
         <div class="d-flex justify-center">
           <v-icon role="img" size="300" :icon="mdiLanguageRubyOnRails" color="red" class="justify-center"/>
@@ -21,10 +21,9 @@
       <BlogMyrordesignMyRorDesign />
       <BlogMyrordesignExemple />
       <BlogMyrordesignConclusion />
-    </v-container>
+    </v-container> -->
   </v-responsive>
 </template>
 <script setup>
 import { mdiLanguageRubyOnRails } from "@mdi/js";
-
 </script>

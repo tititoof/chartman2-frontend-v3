@@ -1,9 +1,7 @@
 import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
-import NuxtVitest from 'vite-plugin-nuxt-test'
 
 export default defineConfig({
-  
   resolve: {
     alias: {
       '~': '.',

@@ -6,8 +6,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "test": "vitest run -c ./test_vite.config.ts",
+    "coverage": "vitest run -c ./test_vite.config.ts --coverage "
   },
   "devDependencies": {
     "@nuxt/content": "^2.4.3",
@@ -18,7 +18,6 @@
     "@vue/test-utils": "^2.3.0",
     "jsdom": "^21.1.0",
     "nuxt": "^3.2.2",
-    "vite-plugin-nuxt-test": "^0.0.10",
     "vitest": "^0.29.2",
     "vitest-sonar-reporter": "^0.3.5"
   },
