@@ -19,16 +19,16 @@
           cols="10"
         >
           Created with&nbsp;
-          <a href="https://nuxt.com/" target="_blank" class="text-blue"
+          <a :href="$sanitize('https://nuxt.com/')" target="_blank" class="text-blue"
             >NuxtJS</a
           >,&nbsp;
-          <a href="https://vuetifyjs.com/en/" target="_blank" class="text-blue"
+          <a :href="$sanitize('https://vuetifyjs.com/en/')" target="_blank" class="text-blue"
             >Vuetify</a
           >&nbsp; and&nbsp;
-          <a href="https://rubyonrails.org/" target="_blank" class="text-blue"
+          <a :href="$sanitize('https://rubyonrails.org/')" target="_blank" class="text-blue"
             >RoR</a
           >&nbsp; -&nbsp;
-          <a href="https://iradesign.io" target="_blank" class="text-blue"
+          <a :href="$sanitize('https://iradesign.io')" target="_blank" class="text-blue"
             >Illustrations by IRA Design
           </a>
         </v-col>

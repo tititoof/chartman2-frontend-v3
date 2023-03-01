@@ -32,7 +32,7 @@
       </li>
       <li>
         Les <code class="text-overline">serializer</code> avec la gem
-        <a href="https://github.com/jsonapi-serializer/jsonapi-serializer" target="_blank"
+        <a :href="$sanitize('https://github.com/jsonapi-serializer/jsonapi-serializer')" target="_blank"
           >jsonapi-serializer</a
         >
       </li>

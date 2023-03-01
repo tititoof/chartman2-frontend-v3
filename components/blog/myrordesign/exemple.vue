@@ -10,7 +10,7 @@
     on lui envoi un message).<br />
     Je vais passer sur la création du modèle, etc...<br />
     De bons tutoriels sur Ruby on rails en français
-    <a class="white--text" href="https://grafikart.fr/tutoriels/ruby-on-rails" target="_blank"
+    <a class="white--text" :href="$sanitize('https://grafikart.fr/tutoriels/ruby-on-rails')" target="_blank"
       >grafikart</a
     ><br />
     <code class="text-overline">app/models/message.rb</code>

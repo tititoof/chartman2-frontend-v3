@@ -52,7 +52,7 @@
     Pour aller plus loin dans l'architecture de Ruby on rails
     <a
       class="white--text"
-      href="https://adrianmejia.com/ruby-on-rails-architectural-design/"
+      :href="$sanitize('https://adrianmejia.com/ruby-on-rails-architectural-design/')"
       target="_blank"
       >Adrian Mejia Logo</a
     ><br />
