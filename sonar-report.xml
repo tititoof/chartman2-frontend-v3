@@ -1,0 +1,7 @@
+<testExecutions version="1">
+  <file path="tests/pages/index.spec.ts">
+    <testCase name="Pages : index - is a Vue instance" duration="17" />
+    <testCase name="Pages : index - include components" duration="1" />
+    <testCase name="Pages : index - should not need to be imported" duration="2" />
+  </file>
+</testExecutions>
