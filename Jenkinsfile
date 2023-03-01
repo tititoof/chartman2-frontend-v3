@@ -11,7 +11,7 @@ pipeline {
                 script {
                     echo 'Building..'
                     sh('''
-                        npm install -g pnpm
+                        sudo npm install -g pnpm
                         rm -Rf ./node_modules
                         pnpm install
                         pnpm build
