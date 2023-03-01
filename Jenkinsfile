@@ -28,7 +28,6 @@ pipeline {
                         sh('''
                             echo "API_URL=http://localhost:8000" > ./.env
                         ''')
-                        sh("pnpm start &")
                         sh('''
                             pnpm run coverage
                         ''')
