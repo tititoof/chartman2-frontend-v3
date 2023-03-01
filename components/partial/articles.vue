@@ -56,8 +56,7 @@
   </section>
 </template>
 <script setup>
-import { mdiLanguageRubyOnRails } from "@mdi/js";
-import { mdiNuxt } from "@mdi/js";
+import { mdiLanguageRubyOnRails, mdiNuxt } from "@mdi/js";
 
 const articles = [
   {

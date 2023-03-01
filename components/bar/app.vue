@@ -26,7 +26,6 @@
 import { mdiDotsVertical } from "@mdi/js";
 import { useSidebarsStore } from "~/store/sidebars";
 import { useUserStore } from "~/store/user";
-import { ref } from "vue";
 import { useDisplay } from "vuetify";
 
 const userStore = useUserStore();

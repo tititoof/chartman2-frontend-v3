@@ -37,10 +37,9 @@
   </v-footer>
 </template>
 <script setup lang="ts">
-import { mdiFacebook } from "@mdi/js";
-import { mdiLinkedin } from "@mdi/js";
-const { $dayjs } = useNuxtApp();
+import { mdiFacebook, mdiLinkedin } from "@mdi/js";
 
+const { $dayjs } = useNuxtApp();
 // @ts-ignore
 const currentYear: number = $dayjs().year();
 const currentRangeYears: string =

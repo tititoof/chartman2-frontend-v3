@@ -48,14 +48,7 @@
   </v-card>
 </template>
 <script setup>
-import { mdiVuejs } from "@mdi/js";
-import { mdiNuxt } from "@mdi/js";
-import { mdiVuetify } from "@mdi/js";
-import { mdiLanguageRuby } from "@mdi/js";
-import { mdiLanguageRubyOnRails } from "@mdi/js";
-import { mdiDatabase } from "@mdi/js";
-import { mdiLaravel } from '@mdi/js';
-import { mdiSymfony } from '@mdi/js';
+import { mdiVuejs, mdiNuxt, mdiVuetify, mdiLanguageRuby, mdiLanguageRubyOnRails, mdiDatabase, mdiLaravel, mdiSymfony } from "@mdi/js";
 
 const skills = [
   {
