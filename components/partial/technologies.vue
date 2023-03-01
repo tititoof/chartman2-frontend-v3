@@ -18,7 +18,7 @@
               <v-icon color="yellow" size="24" :icon="mdiStar" />
             </div>
 
-            <v-btn color="white" :href="url" outlined large target="_blank" variant="outlined">
+            <v-btn color="white" :href="$sanitize(url)" outlined large target="_blank" variant="outlined">
               <span class="white-text text-darken-1 font-weight-bold">
                 {{ title }}
               </span>
