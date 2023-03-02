@@ -60,7 +60,8 @@ pipeline {
         stage("Quality Gate") {
             steps {
                 script {
-                    timeout(time: 1, unit: 'HOURS') {
+                    withSonarQubeEnv("sonarqube") {
+                        sleep(10)
                         def qualitygate = waitForQualityGate()
                         if (qualitygate.status != "OK") {
                             env.WORKSPACE = pwd()
@@ -70,34 +71,64 @@ pipeline {
                 }
             }
         }
-        // stage('Github update') {
-        //     steps {
-        //         script {
-        //             def giteaBranch = env.BRANCH_NAME;
-        //             if (env.BRANCH_NAME.startsWith('PR')) {
-        //                 echo "PR branch"
-        //             } else {
-        //                 if (env.BRANCH_NAME == 'main') {
-        //                     withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_CREDENTIALS')]) {
-        //                         sh '''
-        //                             if git remote | grep github > /dev/null; then
-        //                                 git remote rm github
-        //                             fi
-        //                             git remote add github https://$GITHUB_CREDENTIALS@github.com/tititoof/chartman2-frontend-v3.git
-        //                         '''
-        //                         sh """
-        //                             touch github-update.txt
-        //                             git add .
-        //                             git commit -m "Github update"
-        //                             git push -f github HEAD:main
-        //                         """
-        //                     }
-        //                 }
-        //                 echo 'Github finished'
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Github update') {
+            steps {
+                script {
+                    def giteaBranch = env.BRANCH_NAME;
+                    if (env.BRANCH_NAME.startsWith('PR')) {
+                        echo "PR branch"
+                    } else {
+                        if (env.BRANCH_NAME == 'main') {
+                            withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_CREDENTIALS')]) {
+                                sh '''
+                                    if git remote | grep github > /dev/null; then
+                                        git remote rm github
+                                    fi
+                                    git remote add github https://$GITHUB_CREDENTIALS@github.com/tititoof/chartman2-frontend-v3.git
+                                '''
+                                sh """
+                                    git config --global user.email "chartmann.35@gmail.com"
+                                    git config --global user.name "Christophe Hartmann"
+                                    touch github-update.txt
+                                    touch ./.sonarcloud.properties
+                                    echo "sonar.sources=pages,layouts,components,store" >> ./.sonarcloud.properties
+                                    echo "sonar.exclusions=test/**/*, coverage/**/*" >> ./.sonarcloud.properties
+                                    echo "sonar.testExecutionReportPaths=test-report.xml" >> ./.sonarcloud.properties
+                                    echo "sonar.javascript.lcov.reportPaths=./coverage/lcov.info" >> ./.sonarcloud.properties
+                                    git add .
+                                    git commit -m "feat(github): update repository"
+                                    git push -f github HEAD:main
+                                """
+                            }
+                        }
+                        if (env.BRANCH_NAME == 'develop') {
+                            withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_CREDENTIALS')]) {
+                                sh '''
+                                    if git remote | grep github > /dev/null; then
+                                        git remote rm github
+                                    fi
+                                    git remote add github https://$GITHUB_CREDENTIALS@github.com/tititoof/chartman2-frontend-v3.git
+                                '''
+                                sh """
+                                    git config --global user.email "chartmann.35@gmail.com"
+                                    git config --global user.name "Christophe Hartmann"
+                                    touch github-update.txt
+                                    touch ./.sonarcloud.properties
+                                    echo "sonar.sources=pages,layouts,components,store" >> ./.sonarcloud.properties
+                                    echo "sonar.exclusions=test/**/*, coverage/**/*" >> ./.sonarcloud.properties
+                                    echo "sonar.testExecutionReportPaths=test-report.xml" >> ./.sonarcloud.properties
+                                    echo "sonar.javascript.lcov.reportPaths=./coverage/lcov.info" >> ./.sonarcloud.properties
+                                    git add .
+                                    git commit -m "feat(github): update repository"
+                                    git push -f github HEAD:develop
+                                """
+                            }
+                        }
+                        echo 'Github finished'
+                    }
+                }
+            }
+        }
         stage('Deploy') {
             environment {
                 SERVER_SSH = credentials('tititoof_ssh_user_pswd')
