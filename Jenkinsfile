@@ -136,19 +136,10 @@ pipeline {
             }
             steps {
                 script {
-                    echo 'Deploying....'
-                    if (env.BRANCH_NAME == 'main') {
-                        withCredentials([sshUserPrivateKey(credentialsId: 'ssh-credentials-id', keyFileVariable: 'keyfile')]) {
-                            sh 'sudo mkdir -p ~/.ssh && sudo cp ${keyfile} ~/.ssh/id_ed25519'
-                            sh 'sudo chown jenkins:jenkins ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/id_ed25519'
-                        }
-                        sh '''
-                            ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 -p2222 $SERVER_SSH@$SERVER_IP "[[ -d /var/www/websites/chartman2/frontend-v3 ]] && echo 'Directory exist' || git clone https://$GITHUB_CREDENTIALS@github.com/tititoof/chartman2-frontend.git /var/www/websites/chartman2/frontend"
-                            ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 -p2222 $SERVER_SSH@$SERVER_IP "cd /var/www/websites/chartman2/frontend-v3 && git fetch && git checkout main && git pull"
-                            ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 -p2222 $SERVER_SSH@$SERVER_IP "cd /var/www/websites/chartman2/frontend-v3 && pnpm install"
-                            ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 -p2222 $SERVER_SSH@$SERVER_IP "cd /var/www/websites/chartman2/frontend-v3 && pnpm build"
-                        '''
+                     if (env.BRANCH_NAME == 'main') {
+                        echo 'Deploying....'
                     }
+                    echo "PR branch"
                 }
             }
         }
