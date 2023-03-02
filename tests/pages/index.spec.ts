@@ -1,5 +1,5 @@
 
-import { describe, it, expect, beforeEach, test } from 'vitest'
+import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 
 import { setActivePinia, createPinia } from 'pinia'
@@ -12,7 +12,7 @@ import PartialTechnologies from '../../components/partial/technologies.vue'
 import PartialArticles from '~~/components/partial/articles.vue'
 import { useScroll } from '~~/composables/useScroll'
 
-import { vuetifyStubs } from './stubs/vuetify'
+import { vuetifyStubs } from '../stubs/vuetify'
 
 describe('Pages : index', () => {
   let wrapper: any = null
@@ -38,16 +38,15 @@ describe('Pages : index', () => {
   })
 
   it('is a Vue instance', () => {
-    
-     
-    expect(wrapper.vm).toBeTruthy()
-  })
-
-  it('include components', () => {
     expect(wrapper.vm).toBeTruthy()
   })
   
   it ('should not need to be imported', () => {
     expect(useScroll).toBeDefined()
+    expect(PartialPresentation).toBeDefined()
+    expect(PartialAboutMe).toBeDefined()
+    expect(PartialSkills).toBeDefined()
+    expect(PartialTechnologies).toBeDefined()
+    expect(PartialArticles).toBeDefined()
   })
 })

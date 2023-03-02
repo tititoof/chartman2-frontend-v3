@@ -1,0 +1,20 @@
+export const vuetifyStubs = {
+  'v-container': true,
+  'v-row': true,
+  'v-col': true,
+  'v-card': true,
+  'v-card-actions': true,
+  'v-btn': true,
+  'v-card-text': true,
+  'v-card-title': true,
+  'v-img': true,
+  'v-icon': true,
+  'v-responsive': true,
+  'v-divider': true,
+  'v-parallax': true,
+  'v-app-bar-title': true,
+  'v-spacer': true,
+  'v-app-bar': true,
+  'v-app': true,
+  'v-main': true
+}

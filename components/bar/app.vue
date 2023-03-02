@@ -36,7 +36,5 @@ const toggle = () => {
 
 const { mobile } = useDisplay();
 
-onMounted(() => {
-  userStore.setIsPhone(mobile.value);
-});
+userStore.setIsPhone(mobile.value);
 </script>

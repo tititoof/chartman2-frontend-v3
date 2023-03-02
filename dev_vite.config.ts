@@ -9,20 +9,16 @@ export default defineConfig({
       '@@': '.',
       '@@/': './',
       'public': './public',
-      'public/': './public/'
+      'public/': './public/',
     }
   },
   plugins: [vue()],
   // plugins: [NuxtVitest()],
   test: {
-    reporters: ['vitest-sonar-reporter'],
-    outputFile: 'sonar-report.xml',
     globals: true,
-    include: ['**/tests/**/**.spec.ts'],
+    include: ['**/tests/**/**.spec.ts', '**/tests/**/**/**.spec.ts'],
     environment: 'jsdom',
     coverage: {
-      reporter: 'lcov',
-      provider: 'c8',
       include: ['layouts', 'components', 'store', 'pages'],
       all: true
     }

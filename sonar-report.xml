@@ -1,7 +1,77 @@
-<testExecutions version="1">
-  <file path="tests/pages/index.spec.ts">
-    <testCase name="Pages : index - is a Vue instance" duration="22" />
-    <testCase name="Pages : index - include components" duration="2" />
-    <testCase name="Pages : index - should not need to be imported" duration="2" />
-  </file>
-</testExecutions>
+{
+  "numTotalTestSuites": 4,
+  "numPassedTestSuites": 4,
+  "numFailedTestSuites": 0,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 4,
+  "numPassedTests": 4,
+  "numFailedTests": 0,
+  "numPendingTests": 0,
+  "numTodoTests": 0,
+  "startTime": 1677697667206,
+  "success": true,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "Pages : index"
+          ],
+          "fullName": " Pages : index is a Vue instance",
+          "status": "passed",
+          "title": "is a Vue instance",
+          "duration": 20,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Pages : index"
+          ],
+          "fullName": " Pages : index should not need to be imported",
+          "status": "passed",
+          "title": "should not need to be imported",
+          "duration": 2,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1677697668679,
+      "endTime": 1677697668701,
+      "status": "passed",
+      "message": "",
+      "name": "/home/toofytroll/Projets/chartman2/frontend-v3/tests/pages/index.spec.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "Pages : index"
+          ],
+          "fullName": " Pages : index is a Vue instance",
+          "status": "passed",
+          "title": "is a Vue instance",
+          "duration": 20,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "Pages : index"
+          ],
+          "fullName": " Pages : index should not need to be imported",
+          "status": "passed",
+          "title": "should not need to be imported",
+          "duration": 4,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1677697668679,
+      "endTime": 1677697668703,
+      "status": "passed",
+      "message": "",
+      "name": "/home/toofytroll/Projets/chartman2/frontend-v3/tests/pages/legal_notices.spec.ts"
+    }
+  ]
+}

@@ -15,13 +15,10 @@
 import { useDisplay } from "vuetify";
 import { useUserStore } from "~/store/user";
 
-const nuxtApp = useNuxtApp();
 const userStore = useUserStore();
 const { mobile } = useDisplay();
 
-onMounted(() => {
-  userStore.setIsPhone(mobile);
-});
+userStore.setIsPhone(mobile);
 </script>
 
 <style>
