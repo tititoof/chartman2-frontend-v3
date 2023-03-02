@@ -23,6 +23,7 @@ import { storeToRefs } from "pinia";
 
 const menuStore = useMenuStore();
 const { visibledItems } = storeToRefs(menuStore);
+
 const toggleMenu = ref(null);
 </script>
 
