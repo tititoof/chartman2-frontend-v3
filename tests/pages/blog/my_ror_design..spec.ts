@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { setActivePinia, createPinia } from 'pinia'
-import MyRorDesignResource from '~~/pages/blog/my_ror_design.vue'
+import MyRorDesignResource from '../../../pages/blog/my_ror_design.vue'
 import { createVuetify } from "vuetify";
 import { vuetifyStubs } from '~~/tests/stubs/vuetify'
 

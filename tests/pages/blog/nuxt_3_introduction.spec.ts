@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { setActivePinia, createPinia } from 'pinia'
-import Nuxt3IntroductionResource from '~~/pages/blog/nuxt_3_introduction.vue'
+import Nuxt3IntroductionResource from '../../../pages/blog/nuxt_3_introduction.vue'
 import { createVuetify } from "vuetify";
 import { vuetifyStubs } from '~~/tests/stubs/vuetify'
 

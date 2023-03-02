@@ -19,7 +19,7 @@ export default defineConfig({
     include: ['**/tests/**/**.spec.ts', '**/tests/**/**/**.spec.ts'],
     environment: 'jsdom',
     coverage: {
-      include: ['layouts', 'components', 'store', 'pages'],
+      include: ['layouts/**', 'components/**', 'store', 'pages'],
       all: true
     }
   },

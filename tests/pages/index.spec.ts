@@ -9,7 +9,7 @@ import PartialPresentation from '../../components/partial/presentation.vue'
 import PartialAboutMe from '../../components/partial/about_me.vue'
 import PartialSkills from '../../components/partial/skills.vue'
 import PartialTechnologies from '../../components/partial/technologies.vue'
-import PartialArticles from '~~/components/partial/articles.vue'
+import PartialArticles from '../../components/partial/articles.vue'
 import { useScroll } from '~~/composables/useScroll'
 
 import { vuetifyStubs } from '../stubs/vuetify'
@@ -41,7 +41,7 @@ describe('Pages : index', () => {
     expect(wrapper.vm).toBeTruthy()
   })
   
-  it ('should not need to be imported', () => {
+  it ('components should be imported', () => {
     expect(useScroll).toBeDefined()
     expect(PartialPresentation).toBeDefined()
     expect(PartialAboutMe).toBeDefined()
