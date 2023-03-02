@@ -1,5 +1,4 @@
 import { defineStore, acceptHMRUpdate} from 'pinia'
-import { AppTopBarItem } from '~~/types/BarTop'
 import { useUserStore } from './user'
 
 export const useMenuStore = defineStore({
@@ -25,7 +24,7 @@ export const useMenuStore = defineStore({
       const user = useUserStore();
 
       return state.items.filter(
-        (item: AppTopBarItem) => item.needloggedIn === user.getConnected
+        (item) => item.needloggedIn === user.getConnected
       )
     }
   },

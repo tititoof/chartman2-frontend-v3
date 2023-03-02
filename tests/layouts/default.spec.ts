@@ -10,7 +10,7 @@ import BarApp from '../../components/bar/app.vue'
 import LazyBarTopPhone from '../../components/bar/top/phone.vue'
 import BarBottomGuest from '../../components/bar/bottom/guest.vue'
 
-describe('Pages : index', () => {
+describe('Layouts : default', () => {
   let wrapper: any = null
   
   beforeEach(() => {
