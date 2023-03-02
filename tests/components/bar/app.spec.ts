@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { setActivePinia, createPinia } from 'pinia'
-import ComponentBarAppResource from '~~/components/bar/app.vue'
+import ComponentBarAppResource from '../../../components/bar/app.vue'
 import LazyBarTopDesktop from '~~/components/bar/top/desktop.vue'
 import { vuetifyStubs } from '~~/tests/stubs/vuetify'
 import { createVuetify } from "vuetify";

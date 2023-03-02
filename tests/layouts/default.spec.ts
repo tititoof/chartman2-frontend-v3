@@ -2,12 +2,13 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { setActivePinia, createPinia } from 'pinia'
-import LayoutDefaultResource from '~~/layouts/default.vue'
 import { vuetifyStubs } from '../stubs/vuetify'
 import { createVuetify } from "vuetify";
-import BarApp from '~~/components/bar/app.vue'
-import LazyBarTopPhone from '~~/components/bar/top/phone.vue'
-import BarBottomGuest from '~~/components/bar/bottom/guest.vue'
+
+import LayoutDefaultResource from '~~/layouts/default.vue'
+import BarApp from '../../components/bar/app.vue'
+import LazyBarTopPhone from '../../components/bar/top/phone.vue'
+import BarBottomGuest from '../../components/bar/bottom/guest.vue'
 
 describe('Pages : index', () => {
   let wrapper: any = null

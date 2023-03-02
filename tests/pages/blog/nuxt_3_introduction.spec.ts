@@ -1,11 +1,13 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { setActivePinia, createPinia } from 'pinia'
-import Nuxt3IntroductionResource from '../../../pages/blog/nuxt_3_introduction.vue'
 import { createVuetify } from "vuetify";
 import { vuetifyStubs } from '~~/tests/stubs/vuetify'
 
-describe('Pages : index', () => {
+import Nuxt3IntroductionResource from '../../../pages/blog/nuxt_3_introduction.vue'
+import BlogNuxtthirdIntroduction from '../../../components/blog/nuxtthird/introduction.vue';
+
+describe('Pages : blog/nuxt_3_introduction', () => {
   let wrapper: any = null
   
   beforeEach(() => {
@@ -19,6 +21,7 @@ describe('Pages : index', () => {
     wrapper = mount(Nuxt3IntroductionResource, {
       global: {
         stubs: {
+          BlogNuxtthirdIntroduction,
           ...vuetifyStubs
         },
         plugins: [vuetify],
@@ -28,5 +31,9 @@ describe('Pages : index', () => {
 
   it('is a Vue instance', () => {
     expect(wrapper.vm).toBeTruthy()
+  })
+
+  it ('components should be imported', () => {
+    expect(BlogNuxtthirdIntroduction).toBeDefined()
   })
 })

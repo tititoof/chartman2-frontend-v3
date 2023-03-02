@@ -1,11 +1,17 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { setActivePinia, createPinia } from 'pinia'
-import MyRorDesignResource from '../../../pages/blog/my_ror_design.vue'
 import { createVuetify } from "vuetify";
 import { vuetifyStubs } from '~~/tests/stubs/vuetify'
 
-describe('Pages : index', () => {
+import MyRorDesignResource from '../../../pages/blog/my_ror_design.vue'
+import BlogMyrordesignIntroduction from '../../../components/blog/myrordesign/introduction.vue';
+import BlogMyrordesignRorDesign from '../../../components/blog/myrordesign/ror_design.vue';
+import BlogMyrordesignMyRorDesign from '../../../components/blog/myrordesign/my_ror_design.vue';
+import BlogMyrordesignExemple from '../../../components/blog/myrordesign/exemple.vue';
+import BlogMyrordesignConclusion from '../../../components/blog/myrordesign/conclusion.vue';
+
+describe('Pages : blog/my_ror_design', () => {
   let wrapper: any = null
   
   beforeEach(() => {
@@ -19,6 +25,11 @@ describe('Pages : index', () => {
     wrapper = mount(MyRorDesignResource, {
       global: {
         stubs: {
+          BlogMyrordesignIntroduction,
+          BlogMyrordesignRorDesign,
+          BlogMyrordesignMyRorDesign,
+          BlogMyrordesignExemple,
+          BlogMyrordesignConclusion,
           ...vuetifyStubs
         },
         plugins: [vuetify],
@@ -28,5 +39,13 @@ describe('Pages : index', () => {
 
   it('is a Vue instance', () => {
     expect(wrapper.vm).toBeTruthy()
+  })
+
+  it ('components should be imported', () => {
+    expect(BlogMyrordesignIntroduction).toBeDefined()
+    expect(BlogMyrordesignRorDesign).toBeDefined()
+    expect(BlogMyrordesignMyRorDesign).toBeDefined()
+    expect(BlogMyrordesignExemple).toBeDefined()
+    expect(BlogMyrordesignConclusion).toBeDefined()
   })
 })

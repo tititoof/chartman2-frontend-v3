@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/31</span>
+                <span class='fraction'>31/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/31</span>
+                <span class='fraction'>31/31</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -93,74 +93,74 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >&lt;template&gt;<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
-<span class="cstat-no" title="statement not covered" >  &lt;v-navigation-drawer</span>
-<span class="cstat-no" title="statement not covered" >    location="bottom"</span>
-<span class="cstat-no" title="statement not covered" >    v-model="showDrawer"</span>
-<span class="cstat-no" title="statement not covered" >  &gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;v-list color="dark" shaped&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;v-list-item</span>
-<span class="cstat-no" title="statement not covered" >        v-for="(item, key) in visibledItems"</span>
-<span class="cstat-no" title="statement not covered" >        :key="key"</span>
-<span class="cstat-no" title="statement not covered" >        :to="item.route"</span>
-<span class="cstat-no" title="statement not covered" >        color="purple accent-3"</span>
-<span class="cstat-no" title="statement not covered" >      &gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;v-list-item-title&gt; {{ $t(item.name) }} &lt;/v-list-item-title&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/v-list-item&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/v-list&gt;</span>
-<span class="cstat-no" title="statement not covered" >  &lt;/v-navigation-drawer&gt;</span>
-<span class="cstat-no" title="statement not covered" >&lt;/template&gt;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >&lt;script setup lang="ts"&gt;</span>
-<span class="cstat-no" title="statement not covered" >import { useSidebarsStore } from "~/store/sidebars";</span>
-<span class="cstat-no" title="statement not covered" >import { useMenuStore } from "~/store/menu";</span>
-<span class="cstat-no" title="statement not covered" >import { storeToRefs } from "pinia";</span>
-<span class="cstat-no" title="statement not covered" >import { useUserStore } from "~/store/user";</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >const userStore = useUserStore();</span>
-<span class="cstat-no" title="statement not covered" >const sidebarsStore = useSidebarsStore();</span>
-<span class="cstat-no" title="statement not covered" >const menuStore = useMenuStore()</span>
-<span class="cstat-no" title="statement not covered" >const sidebarsRef = storeToRefs(useSidebarsStore());</span>
-<span class="cstat-no" title="statement not covered" >const showDrawer = ref(sidebarsRef.bottom);</span>
-<span class="cstat-no" title="statement not covered" >const visibledItems = computed(() =&gt; menuStore.visibledItems);</span>
-<span class="cstat-no" title="statement not covered" >&lt;/script&gt;</span></pre></td></tr></table></pre>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+  &lt;v-navigation-drawer
+    location="bottom"
+    v-model="showDrawer"
+  &gt;
+    &lt;v-list color="dark" shaped&gt;
+      &lt;v-list-item
+        v-for="(item, key) in visibledItems"
+        :key="key"
+        :to="item.route"
+        color="purple accent-3"
+      &gt;
+        &lt;v-list-item-title&gt; {{ $t(item.name) }} &lt;/v-list-item-title&gt;
+      &lt;/v-list-item&gt;
+    &lt;/v-list&gt;
+  &lt;/v-navigation-drawer&gt;
+&lt;/template&gt;
+&nbsp;
+&lt;script setup lang="ts"&gt;
+import { useSidebarsStore } from "~/store/sidebars";
+import { useMenuStore } from "~/store/menu";
+import { storeToRefs } from "pinia";
+import { useUserStore } from "~/store/user";
+&nbsp;
+const userStore = useUserStore();
+const sidebarsStore = useSidebarsStore();
+const menuStore = useMenuStore()
+const sidebarsRef = storeToRefs(useSidebarsStore());
+const showDrawer = ref(sidebarsRef.bottom);
+const visibledItems = computed(() =&gt; menuStore.visibledItems);
+&lt;/script&gt;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-02T06:06:46.825Z
+                at 2023-03-02T06:20:32.209Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -1,15 +1,13 @@
 import { describe, it, expect, beforeEach, test } from 'vitest'
 import { mount } from '@vue/test-utils'
-
 import { setActivePinia, createPinia } from 'pinia'
+import { useScroll } from '~~/composables/useScroll'
+import { vuetifyStubs } from '../stubs/vuetify'
 
 import LegalNoticesResource from '../../pages/legal_notices.vue'
 import PartialLegalNotices from '../../components/partial/legal_notices.vue'
-import { useScroll } from '~~/composables/useScroll'
 
-import { vuetifyStubs } from '../stubs/vuetify'
-
-describe('Pages : index', () => {
+describe('Pages : legal_notices', () => {
   let wrapper: any = null
   
   beforeEach(() => {
@@ -32,7 +30,8 @@ describe('Pages : index', () => {
     expect(wrapper.vm).toBeTruthy()
   })
   
-  it ('should not need to be imported', () => {
+  it ('components should be imported', () => {
     expect(useScroll).toBeDefined()
+    expect(PartialLegalNotices).toBeDefined()
   })
 })
