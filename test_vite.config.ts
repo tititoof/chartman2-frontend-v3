@@ -9,7 +9,8 @@ export default defineConfig({
       '@@': '.',
       '@@/': './',
       'public': './public',
-      'public/': './public/'
+      'public/': './public/',
+      '#imports': '<rootDir>/.nuxt/imports.d.ts',
     }
   },
   plugins: [vue()],

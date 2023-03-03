@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { setActivePinia, createPinia } from 'pinia'
 import { createVuetify } from "vuetify";
@@ -10,6 +10,10 @@ import BlogMyrordesignRorDesign from '../../../components/blog/myrordesign/ror_d
 import BlogMyrordesignMyRorDesign from '../../../components/blog/myrordesign/my_ror_design.vue';
 import BlogMyrordesignExemple from '../../../components/blog/myrordesign/exemple.vue';
 import BlogMyrordesignConclusion from '../../../components/blog/myrordesign/conclusion.vue';
+
+vi.mock('#imports', () => ({
+  useHead: (meta: any) => {},
+}))
 
 describe('Pages : blog/my_ror_design', () => {
   let wrapper: any = null

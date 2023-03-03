@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { setActivePinia, createPinia } from 'pinia'
 import { createVuetify } from "vuetify";
@@ -6,6 +6,10 @@ import { vuetifyStubs } from '~~/tests/stubs/vuetify'
 
 import Nuxt3IntroductionResource from '../../../pages/blog/nuxt_3_introduction.vue'
 import BlogNuxtthirdIntroduction from '../../../components/blog/nuxtthird/introduction.vue';
+
+vi.mock('#imports', () => ({
+  useHead: (meta: any) => {},
+}))
 
 describe('Pages : blog/nuxt_3_introduction', () => {
   let wrapper: any = null

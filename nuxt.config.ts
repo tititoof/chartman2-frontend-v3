@@ -1,10 +1,21 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      charset: 'UTF-8',
+      title: 'chartman2.fr - web artisan',
+      meta: [
+        { name: 'title', content: 'chartman2.fr' },
+        { name: 'author', content: 'Christophe Hartmann' },
+        { name: 'description', content: 'Web artisan, loving ruby on rails, nuxtjs, ci/cd, gitea, jenkins, sonarsource, openproject, php, laravel, symfony' },
+      ],
+    }
+  },
   css: ['vuetify/lib/styles/main.sass', '@mdi/font/css/materialdesignicons.min.css',],
   build: {
     transpile: ['vuetify'],
   },
-  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/content'],
+  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/content', '@vueuse/nuxt'],
   i18n: {
     langDir: 'locales',
     lazy: true,

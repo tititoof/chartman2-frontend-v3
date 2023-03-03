@@ -1,8 +1,9 @@
 
-import { describe, it, expect, beforeEach } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
-
 import { setActivePinia, createPinia } from 'pinia'
+import { useScroll } from '~~/composables/useScroll'
+import { vuetifyStubs } from '../stubs/vuetify'
 
 import IndexResource from '../../pages/index.vue'
 import PartialPresentation from '../../components/partial/presentation.vue'
@@ -10,9 +11,10 @@ import PartialAboutMe from '../../components/partial/about_me.vue'
 import PartialSkills from '../../components/partial/skills.vue'
 import PartialTechnologies from '../../components/partial/technologies.vue'
 import PartialArticles from '../../components/partial/articles.vue'
-import { useScroll } from '~~/composables/useScroll'
 
-import { vuetifyStubs } from '../stubs/vuetify'
+vi.mock('#imports', () => ({
+  useHead: (meta: any) => {},
+}))
 
 describe('Pages : index', () => {
   let wrapper: any = null

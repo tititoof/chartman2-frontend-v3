@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, test } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { setActivePinia, createPinia } from 'pinia'
 import { useScroll } from '~~/composables/useScroll'
@@ -6,6 +6,10 @@ import { vuetifyStubs } from '../stubs/vuetify'
 
 import LegalNoticesResource from '../../pages/legal_notices.vue'
 import PartialLegalNotices from '../../components/partial/legal_notices.vue'
+
+vi.mock('#imports', () => ({
+  useHead: (meta: any) => {},
+}))
 
 describe('Pages : legal_notices', () => {
   let wrapper: any = null

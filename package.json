@@ -18,6 +18,8 @@
     "@vitest/coverage-c8": "^0.29.2",
     "@vitest/ui": "^0.29.2",
     "@vue/test-utils": "^2.3.0",
+    "@vueuse/core": "^9.13.0",
+    "@vueuse/nuxt": "^9.13.0",
     "jsdom": "^21.1.0",
     "nuxt": "^3.2.2",
     "vitest": "^0.29.2",
