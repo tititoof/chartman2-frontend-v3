@@ -156,11 +156,11 @@ pipeline {
                                     sudo rm ../.ssh/id_ed25519.pub
                                 fi
                             '''
-                            writeFile file: '~/.ssh/id_ed25519.pub', text: readFile(sshId)
+                            writeFile file: '../.ssh/id_ed25519.pub', text: readFile(sshId)
                             sh '''
                                 if [ -f ../.ssh/id_ed25519.pub ]
                                 then
-                                    chmod 400 ~/.ssh/id_ed25519.pub
+                                    chmod 400 ../.ssh/id_ed25519.pub
                                 fi
                                 
                                 if [ ! -f "~/.ssh/known_hosts" ]
