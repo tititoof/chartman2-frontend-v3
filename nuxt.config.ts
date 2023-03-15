@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       charset: 'UTF-8',
-      title: 'chartman2.fr - web artisan',
+      title: 'chartman2.fr - Web Artisan',
       meta: [
         { name: 'title', content: 'chartman2.fr' },
         { name: 'author', content: 'Christophe Hartmann' },
