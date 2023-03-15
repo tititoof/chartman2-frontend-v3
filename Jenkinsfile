@@ -105,6 +105,7 @@ pipeline {
                         if (env.BRANCH_NAME == 'develop') {
                             withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_CREDENTIALS')]) {
                                 sh '''
+                                    pnpm add dotenv --save
                                     if git remote | grep github > /dev/null; then
                                         git remote rm github
                                     fi
@@ -139,29 +140,32 @@ pipeline {
                     if (env.BRANCH_NAME == 'develop') {
                         echo 'Deploy on testing'
                         withCredentials([file(credentialsId: 'staging-ssh-id-file', variable: 'sshId')]) {
-                            sh '''
-                                if [ ! -d ~/.ssh ] 
-                                then
-                                    mkdir ~/.ssh
-                                fi
-                                if [ -f ~/.ssh/id_ed25519.pub ]
-                                then
-                                    sudo rm ~/.ssh/id_ed25519.pub
-                                fi
-                            '''
-                            writeFile file: '~/.ssh/id_ed25519.pub', text: readFile(sshId)
-                            sh '''
-                                if [ -f ~/.ssh/id_ed25519.pub ]
-                                then
-                                    chmod 400 ~/.ssh/id_ed25519.pub
-                                fi
-                                
-                                if [ ! -f "~/.ssh/known_hosts" ]
-                                then
-                                    ssh-keyscan -t rsa 192.168.1.225 > ~/.ssh/known_hosts
-                                fi
-                                pm2 deploy staging
-                            '''
+                            withCredentials([file(credentialsId: 'chartman2-fr-frontend-env', variable: 'envFile')]) {
+                                writeFile file: './.env', text: readFile(envFile)
+                                sh '''
+                                    if [ ! -d ~/.ssh ] 
+                                    then
+                                        mkdir ~/.ssh
+                                    fi
+                                    if [ -f ~/.ssh/id_ed25519.pub ]
+                                    then
+                                        sudo rm ~/.ssh/id_ed25519.pub
+                                    fi
+                                '''
+                                writeFile file: '~/.ssh/id_ed25519.pub', text: readFile(sshId)
+                                sh '''
+                                    if [ -f ~/.ssh/id_ed25519.pub ]
+                                    then
+                                        chmod 400 ~/.ssh/id_ed25519.pub
+                                    fi
+                                    
+                                    if [ ! -f "~/.ssh/known_hosts" ]
+                                    then
+                                        ssh-keyscan -t rsa 192.168.1.225 > ~/.ssh/known_hosts
+                                    fi
+                                    pm2 deploy staging
+                                '''
+                            }
                         }
                     }
                     echo "PR branch"

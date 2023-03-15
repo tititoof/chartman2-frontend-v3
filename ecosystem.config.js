@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   apps: [
     {
@@ -21,7 +23,7 @@ module.exports = {
       host: ['51.75.194.189'],
       ssh_options: 'Port=49604',
       ref: 'origin/main',
-      repo: rocess.env.GITHUB_URL,
+      repo: process.env.GITHUB_URL,
       path: '/var/www/websites/chartman2.fr/frontend-v3',
       'post-deploy': 'sh /home/deploy/chartman2.fr/frontend-v3/deploy.sh'
     },
@@ -31,7 +33,7 @@ module.exports = {
       host: ['192.168.1.225'],
       ssh_options: 'Port=22',
       ref: 'origin/develop',
-      repo: rocess.env.GITHUB_URL,
+      repo: process.env.GITHUB_URL,
       path: '/var/www/chartman2.fr/frontend-v3',
       'post-deploy': 'sh /home/toofytroll/chartman2.fr/frontend-v3/deploy.sh'
     }
