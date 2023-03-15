@@ -1,6 +1,7 @@
 node_modules
 *.log*
 .ssh
+~/.ssh
 .nuxt
 .nitro
 .cache
