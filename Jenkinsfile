@@ -141,7 +141,7 @@ pipeline {
                         withCredentials([file(credentialsId: 'staging-ssh-id-file', variable: 'sshId')]) {
                             writeFile file: '../.ssh/id_ed25519.pub', text: readFile(sshId)
                             sh '''
-                                ls ../.ssh/
+                                chmod 400 ~/.ssh/id_rsa
                                 mkdir ~/.ssh
                                 ssh-keyscan -t rsa 192.168.1.225 > ~/.ssh/known_hosts
                                 pm2 deploy staging
