@@ -141,6 +141,7 @@ pipeline {
                         withCredentials([file(credentialsId: 'staging-ssh-id-file', variable: 'sshId')]) {
                             writeFile file: '../.ssh/id_ed25519.pub', text: readFile(sshId)
                             sh '''
+                                ls ../.ssh/
                                 pm2 deploy staging
                             '''
                         }
