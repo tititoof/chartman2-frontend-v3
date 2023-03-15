@@ -135,6 +135,13 @@ pipeline {
                     if (env.BRANCH_NAME == 'main') {
                         echo 'Deploying....'
                     }
+                    if (env.BRANCH_NAME == 'develop') {
+                        echo 'Deploy on testing'
+                        sh '''
+                            yarn global add pm2
+                            pm2 deploy staging
+                        '''
+                    }
                     echo "PR branch"
                 }
             }
