@@ -138,20 +138,23 @@ pipeline {
                     }
                     if (env.BRANCH_NAME == 'develop') {
                         echo 'Deploy on testing'
-                        sh '''
-                            if [ ! -d ~/.ssh ] 
-                            then
-                                mkdir ~/.ssh
-                            fi
-                            if [ -f ~/.ssh/id_ed25519.pub ]
-                            then
-                                sudo rm ~/.ssh/id_ed25519.pub
-                            fi
-                        '''
                         withCredentials([file(credentialsId: 'staging-ssh-id-file', variable: 'sshId')]) {
+                            sh '''
+                                if [ ! -d ~/.ssh ] 
+                                then
+                                    mkdir ~/.ssh
+                                fi
+                                if [ -f ~/.ssh/id_ed25519.pub ]
+                                then
+                                    sudo rm ~/.ssh/id_ed25519.pub
+                                fi
+                            '''
                             writeFile file: '~/.ssh/id_ed25519.pub', text: readFile(sshId)
                             sh '''
-                                chmod 400 ~/.ssh/id_ed25519.pub
+                                if [ -f ~/.ssh/id_ed25519.pub ]
+                                then
+                                    chmod 400 ~/.ssh/id_ed25519.pub
+                                fi
                                 
                                 if [ ! -f "~/.ssh/known_hosts" ]
                                 then
