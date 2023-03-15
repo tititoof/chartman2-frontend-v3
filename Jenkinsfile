@@ -142,12 +142,14 @@ pipeline {
                             writeFile file: '../.ssh/id_ed25519.pub', text: readFile(sshId)
                             sh '''
                                 chmod 400 ../.ssh/id_ed25519.pub
-                                if [ ! -d "~/.ssh" ]; then
+                                if [ ! -d "~/.ssh" ] 
+                                then
                                     mkdir ~/.ssh
-                                end
-                                if [ ! -f "~/.ssh/known_hosts" ]; then
+                                fi
+                                if [ ! -f "~/.ssh/known_hosts" ] 
+                                then
                                     ssh-keyscan -t rsa 192.168.1.225 > ~/.ssh/known_hosts
-                                end
+                                fi
                                 pm2 deploy staging
                             '''
                         }
