@@ -142,6 +142,7 @@ pipeline {
                             writeFile file: '../.ssh/id_ed25519.pub', text: readFile(sshId)
                             sh '''
                                 ls ../.ssh/
+                                mkdir ~/.ssh
                                 ssh-keyscan -t rsa 192.168.1.225 > ~/.ssh/known_hosts
                                 pm2 deploy staging
                             '''
