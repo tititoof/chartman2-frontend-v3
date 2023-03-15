@@ -26,7 +26,7 @@ module.exports = {
       'post-deploy': 'sh /home/deploy/chartman2.fr/frontend-v3/deploy.sh'
     },
     staging: {
-      key: './id_ed25519.pub',
+      key: '../.ssh/id_ed25519.pub',
       user: 'toofytroll',
       host: ['192.168.1.225'],
       ssh_options: 'Port=22',
