@@ -85,6 +85,10 @@ pipeline {
                                     if git remote | grep github > /dev/null; then
                                         git remote rm github
                                     fi
+                                    if [ -f ../.ssh/id_ed25519.pub ]
+                                    then
+                                        sudo rm ../.ssh/id_ed25519.pub
+                                    fi
                                     git remote add github https://$GITHUB_CREDENTIALS@github.com/tititoof/chartman2-frontend-v3.git
                                 '''
                                 sh """
@@ -106,9 +110,9 @@ pipeline {
                             withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_CREDENTIALS')]) {
                                 
                                 sh '''
-                                    if [ -f ~/.ssh/id_ed25519.pub ]
+                                    if [ -f ../.ssh/id_ed25519.pub ]
                                     then
-                                        sudo rm ~/.ssh/id_ed25519.pub
+                                        sudo rm ../.ssh/id_ed25519.pub
                                     fi
                                     pnpm add dotenv --save
                                     if git remote | grep github > /dev/null; then
@@ -147,14 +151,14 @@ pipeline {
                                 then
                                     mkdir ~/.ssh
                                 fi
-                                if [ -f ~/.ssh/id_ed25519.pub ]
+                                if [ -f ../.ssh/id_ed25519.pub ]
                                 then
-                                    sudo rm ~/.ssh/id_ed25519.pub
+                                    sudo rm ../.ssh/id_ed25519.pub
                                 fi
                             '''
                             writeFile file: '~/.ssh/id_ed25519.pub', text: readFile(sshId)
                             sh '''
-                                if [ -f ~/.ssh/id_ed25519.pub ]
+                                if [ -f ../.ssh/id_ed25519.pub ]
                                 then
                                     chmod 400 ~/.ssh/id_ed25519.pub
                                 fi
