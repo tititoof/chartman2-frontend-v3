@@ -12,6 +12,7 @@ pipeline {
                     echo 'Building..'
                     sh('''
                         sudo npm install -g pnpm
+                        sudo npm install -g pm2
                         rm -Rf ./node_modules
                         pnpm install
                         pnpm build
@@ -138,7 +139,6 @@ pipeline {
                     if (env.BRANCH_NAME == 'develop') {
                         echo 'Deploy on testing'
                         sh '''
-                            yarn global add pm2
                             pm2 deploy staging
                         '''
                     }
