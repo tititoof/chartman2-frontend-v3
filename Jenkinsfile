@@ -139,35 +139,38 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    if (env.BRANCH_NAME == 'main') {
-                        echo 'Deploying....'
-                    }
-                    if (env.BRANCH_NAME == 'develop') {
-                        echo 'Deploy on testing'
-                        withCredentials([file(credentialsId: 'staging-ssh-id-file', variable: 'sshId')]) {
-                            withCredentials([file(credentialsId: 'chartman2-fr-frontend-env', variable: 'envFile')]) {
-                                writeFile file: './.env', text: readFile(envFile)
+                    withCredentials([file(credentialsId: 'staging-ssh-id-file', variable: 'sshId')]) {
+                        withCredentials([file(credentialsId: 'chartman2-fr-frontend-env', variable: 'envFile')]) {
+                            writeFile file: './.env', text: readFile(envFile)
+                            sh '''
+                                if [ ! -d ~/.ssh ] 
+                                then
+                                    mkdir ~/.ssh
+                                fi
+                                if [ -f ~/.ssh/id_ed25519.pub ]
+                                then
+                                    sudo rm ~/.ssh/id_ed25519.pub
+                                fi
+                            '''
+                            writeFile file: '~/.ssh/id_ed25519.pub', text: readFile(sshId)
+                            sh '''
+                                if [ -f ~/.ssh/id_ed25519.pub ]
+                                then
+                                    chmod 400 ~/.ssh/id_ed25519.pub
+                                fi
+                                
+                                if [ ! -f "~/.ssh/known_hosts" ]
+                                then
+                                    ssh-keyscan -t rsa 192.168.1.225 > ~/.ssh/known_hosts
+                                fi
+                            '''
+                            if (env.BRANCH_NAME == 'main') {
                                 sh '''
-                                    if [ ! -d ~/.ssh ] 
-                                    then
-                                        mkdir ~/.ssh
-                                    fi
-                                    if [ -f ~/.ssh/id_ed25519.pub ]
-                                    then
-                                        sudo rm ~/.ssh/id_ed25519.pub
-                                    fi
+                                    pm2 deploy production
                                 '''
-                                writeFile file: '~/.ssh/id_ed25519.pub', text: readFile(sshId)
+                            }
+                            if (env.BRANCH_NAME == 'develop') {
                                 sh '''
-                                    if [ -f ~/.ssh/id_ed25519.pub ]
-                                    then
-                                        chmod 400 ~/.ssh/id_ed25519.pub
-                                    fi
-                                    
-                                    if [ ! -f "~/.ssh/known_hosts" ]
-                                    then
-                                        ssh-keyscan -t rsa 192.168.1.225 > ~/.ssh/known_hosts
-                                    fi
                                     pm2 deploy staging
                                 '''
                             }
