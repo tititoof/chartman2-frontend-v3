@@ -11,6 +11,7 @@ import PartialAboutMe from '../../components/partial/about_me.vue'
 import PartialSkills from '../../components/partial/skills.vue'
 import PartialTechnologies from '../../components/partial/technologies.vue'
 import PartialArticles from '../../components/partial/articles.vue'
+import PartialContactMe from '../../components/partial/contact_me.vue'
 
 vi.mock('#imports', () => ({
   useHead: (meta: any) => {},
@@ -33,6 +34,7 @@ describe('Pages : index', () => {
           PartialSkills, 
           PartialTechnologies,
           PartialArticles,
+          PartialContactMe,
           ...vuetifyStubs
         },
       }
@@ -50,5 +52,6 @@ describe('Pages : index', () => {
     expect(PartialSkills).toBeDefined()
     expect(PartialTechnologies).toBeDefined()
     expect(PartialArticles).toBeDefined()
+    expect(PartialContactMe).toBeDefined()
   })
 })
