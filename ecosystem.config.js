@@ -7,7 +7,8 @@ module.exports = {
       exec_mode: 'cluster',
       instances: 'max', // Or a number of instances
       script: './.output/server/index.mjs',
-      port: '80',
+      port: 6000,
+      host: '127.0.0.1',
       env_production: {
         PORT: 80,
         NODE_ENV: 'production'
