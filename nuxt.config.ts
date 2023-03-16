@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
-  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/content', '@vueuse/nuxt'],
+  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/content', '@vueuse/nuxt', 'nuxt-purgecss', 'nuxt-delay-hydration'],
   i18n: {
     langDir: 'locales',
     lazy: true,
@@ -54,6 +54,9 @@ export default defineNuxtConfig({
     highlight: {
       theme: 'monokai'
     }
+  },
+  delayHydration: {
+    mode: 'mount'
   },
   vite: {
     define: {
