@@ -5,6 +5,7 @@
     <PartialSkills />
     <PartialTechnologies />
     <PartialArticles />
+    <PartialContactMe />
   </v-responsive>
 </template>
 <script setup>
