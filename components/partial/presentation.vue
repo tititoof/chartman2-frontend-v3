@@ -42,5 +42,4 @@ import { mdiChevronDoubleDown } from "@mdi/js";
 
 const userStore = useUserStore();
 const imgHeight = userStore.getIsPhone ? "45vh" : "70vh";
-const goTo = (text) => console.log(text);
 </script>

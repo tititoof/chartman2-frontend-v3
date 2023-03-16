@@ -20,8 +20,19 @@
           cols="12"
           md="4"
         >
-          <v-card class="mx-auto" max-width="300">
-            <v-icon v-if="type === 'icon'" role="img" size="300" :icon="src" :color="color" />
+          <v-card
+            class="mx-auto"
+            max-width="300"
+            min-height="480"
+            max-height="480"
+          >
+            <v-icon
+              v-if="type === 'icon'"
+              role="img"
+              size="300"
+              :icon="src"
+              :color="color"
+            />
 
             <v-img v-else color="primary" size="300" :image="src" />
             <v-card-title>
@@ -29,10 +40,12 @@
                 {{ title }}
               </div>
             </v-card-title>
-            <v-card-text>
-              <div class="title font-weight-light mb-5">{{ text }}</div>
+            <v-card-text class="title font-weight-light mb-5">
+              <v-sheet :height="30">
+                {{ text }}
+              </v-sheet>
             </v-card-text>
-            <v-card-actions>
+            <v-card-actions class="d-flex align-end">
               <v-btn
                 class="font-weight-black"
                 color="primary"
@@ -41,9 +54,9 @@
                 variant="outlined"
                 block
               >
-              <span class="text-blue text-darken-1 font-weight-bold">
-                Lire
-              </span>
+                <span class="text-blue text-darken-1 font-weight-bold">
+                  Lire
+                </span>
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -62,7 +75,7 @@ const articles = [
   {
     type: "icon",
     src: mdiLanguageRubyOnRails,
-    color: 'red',
+    color: "red",
     title: "Design pattern",
     text: "Mon design pattern utilisé au quotidien avec Ruby on Rails.",
     link: "/blog/my_ror_design",
@@ -70,7 +83,7 @@ const articles = [
   {
     type: "icon",
     src: mdiNuxt,
-    color: 'green',
+    color: "green",
     title: "Nuxt 3",
     text: "Petite explication sur le framework Nuxt.",
     link: "/blog/nuxt_3_introduction",
