@@ -48,6 +48,7 @@
   </v-card>
 </template>
 <script setup>
+import { ref } from "vue";
 const valid = ref(false);
 const name = ref("");
 const email = ref("");
