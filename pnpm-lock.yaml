@@ -17,6 +17,7 @@ specifiers:
   dotenv: ^16.0.3
   jsdom: ^21.1.0
   nuxt: ^3.2.2
+  nuxt-delay-hydration: ^1.1.4
   nuxt-purgecss: ^2.0.0
   sass: ^1.58.3
   vitest: ^0.29.2
@@ -46,6 +47,7 @@ devDependencies:
   '@vueuse/nuxt': 9.13.0_nuxt@3.2.3
   jsdom: 21.1.0
   nuxt: 3.2.3_sass@1.58.3
+  nuxt-delay-hydration: 1.1.4
   nuxt-purgecss: 2.0.0
   vitest: 0.29.2_qeoamd3u3u3tlef6iyhuhhoig4
   vitest-sonar-reporter: 0.3.5_vitest@0.29.2
@@ -1875,6 +1877,16 @@ packages:
 
   /@types/istanbul-lib-coverage/2.0.4:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}
+    dev: true
+
+  /@types/lodash.template/4.5.1:
+    resolution: {integrity: sha512-0y71S2dGgmwdkSsyW95JBp8HSZchgKCsjr6F0lsT3eSMtaT3Nn9rcMHU1U4UKu6XjQT3YC6/PNwgFI7k9f+ltw==}
+    dependencies:
+      '@types/lodash': 4.14.191
+    dev: true
+
+  /@types/lodash/4.14.191:
+    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
     dev: true
 
   /@types/mdast/3.0.10:
@@ -5379,6 +5391,19 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /nuxt-delay-hydration/1.1.4:
+    resolution: {integrity: sha512-CXa/DYiho0YP1Sw3gwedU9XY003KfiC9VeZ7yvLcmozmOpcQH8DsSgH9iSdNXbTbAMMyaPWCTYqWoNBU607YCw==}
+    dependencies:
+      '@nuxt/kit': 3.2.3
+      '@types/lodash.template': 4.5.1
+      lodash.template: 4.5.0
+      packrup: 0.1.0
+      radix3: 1.0.0
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
   /nuxt-purgecss/2.0.0:
     resolution: {integrity: sha512-ajTVNZ7CoHwgmR0le0mqNg+CHXuOxVAmUmvnUeBpdurHmJ2Q4fJ6xbK2vbd99Vi0COpmz/TPMNz2gGmA478kcQ==}
     dependencies:
@@ -5590,6 +5615,10 @@ packages:
   /p-try/2.2.0:
     resolution: {integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==}
     engines: {node: '>=6'}
+    dev: true
+
+  /packrup/0.1.0:
+    resolution: {integrity: sha512-HnUl9ztHGty5ZK13WM8Q7854SWPKH/eCT+MiTO0P1qCu1Y4S5PPJ8E9MwD3cnjSr7PUPzXDnmOVJIKM043OfJQ==}
     dev: true
 
   /parse-entities/4.0.1:
