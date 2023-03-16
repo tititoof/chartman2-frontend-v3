@@ -132,7 +132,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    if (env.BRANCH_NAME == 'main') {
+                     if (env.BRANCH_NAME == 'main') {
                         echo 'Deploying....'
                     }
                     echo "PR branch"
