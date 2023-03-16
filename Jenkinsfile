@@ -169,12 +169,13 @@ pipeline {
                                             chmod 400 ../.ssh/id_ed25519.pub
                                         fi
                                         
-                                        if [ ! -f "~/.ssh/known_hosts" ]
+                                        if [ -f "~/.ssh/known_hosts" ]
                                         then
-                                            touch ~/.ssh/known_hosts
+                                            sudo rm ~/.ssh/known_hosts
                                         fi
 
-                                        ssh-keyscan -t rsa $HomeStagingIp > ~/.ssh/known_hosts
+                                        touch ~/.ssh/known_hosts
+                                        ssh-keyscan -t rsa $HomeStagingIp >> ~/.ssh/known_hosts
                                         ssh-keyscan -t rsa $ProductionIp >> ~/.ssh/known_hosts
                                     '''
                                     if (env.BRANCH_NAME == 'main') {
