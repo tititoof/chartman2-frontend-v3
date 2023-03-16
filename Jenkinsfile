@@ -149,48 +149,50 @@ pipeline {
                 script {
                     withCredentials([string(credentialsId: 'home-dev-staging-ip', variable: 'HomeStagingIp')]) {
                         withCredentials([string(credentialsId: 'production-ip-1', variable: 'ProductionIp')]) {
-                            withCredentials([file(credentialsId: 'staging-ssh-id-file', variable: 'sshId')]) {
-                                withCredentials([file(credentialsId: 'chartman2-fr-frontend-env', variable: 'envFile')]) {
-                                    writeFile file: './.env', text: readFile(envFile)
-                                    sh '''
-                                        if [ ! -d ~/.ssh ] 
-                                        then
-                                            mkdir ~/.ssh
-                                        fi
-                                        if [ -f ../.ssh/id_ed25519.pub ]
-                                        then
-                                            sudo rm ../.ssh/id_ed25519.pub
-                                        fi
-                                    '''
-                                    writeFile file: '../.ssh/id_ed25519.pub', text: readFile(sshId)
-                                    sh '''
-                                        if [ -f ../.ssh/id_ed25519.pub ]
-                                        then
-                                            chmod 400 ../.ssh/id_ed25519.pub
-                                        fi
-                                        
-                                        if [ -f "~/.ssh/known_hosts" ]
-                                        then
-                                            sudo rm ~/.ssh/known_hosts
-                                        fi
-
-                                        touch ~/.ssh/known_hosts
-                                        ssh-keyscan -t rsa $HomeStagingIp >> ~/.ssh/known_hosts
-
-                                    '''
-                                    if (env.BRANCH_NAME == 'main') {
+                            withCredentials([string(credentialsId: 'production-port', variable: 'ProductionPort')]) {
+                                withCredentials([file(credentialsId: 'staging-ssh-id-file', variable: 'sshId')]) {
+                                    withCredentials([file(credentialsId: 'chartman2-fr-frontend-env', variable: 'envFile')]) {
+                                        writeFile file: './.env', text: readFile(envFile)
                                         sh '''
-                                            pm2 deploy production
+                                            if [ ! -d ~/.ssh ] 
+                                            then
+                                                mkdir ~/.ssh
+                                            fi
+                                            if [ -f ../.ssh/id_ed25519.pub ]
+                                            then
+                                                sudo rm ../.ssh/id_ed25519.pub
+                                            fi
                                         '''
-                                    }
-                                    if (env.BRANCH_NAME == 'develop') {
+                                        writeFile file: '../.ssh/id_ed25519.pub', text: readFile(sshId)
                                         sh '''
-                                            pm2 deploy staging
+                                            if [ -f ../.ssh/id_ed25519.pub ]
+                                            then
+                                                chmod 400 ../.ssh/id_ed25519.pub
+                                            fi
+                                            
+                                            if [ -f "~/.ssh/known_hosts" ]
+                                            then
+                                                sudo rm ~/.ssh/known_hosts
+                                            fi
+
+                                            touch ~/.ssh/known_hosts
+                                            ssh-keyscan -t rsa $HomeStagingIp >> ~/.ssh/known_hosts
+                                            ssh-keyscan -t rsa -p $ProductionPort $ProductionIp >> ~/.ssh/known_hosts
                                         '''
+                                        if (env.BRANCH_NAME == 'main') {
+                                            sh '''
+                                                pm2 deploy production
+                                            '''
+                                        }
+                                        if (env.BRANCH_NAME == 'develop') {
+                                            sh '''
+                                                pm2 deploy staging
+                                            '''
+                                        }
                                     }
                                 }
+                                echo "PR branch"
                             }
-                            echo "PR branch"
                         }
                     }
                 }
