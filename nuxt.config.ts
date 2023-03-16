@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
-  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/content', '@vueuse/nuxt', 'nuxt-purgecss'],
+  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/content', '@vueuse/nuxt'],
   i18n: {
     langDir: 'locales',
     lazy: true,
