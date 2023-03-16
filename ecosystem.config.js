@@ -20,7 +20,7 @@ module.exports = {
     production: {
       key: process.env.PRODUCTION_SSH_KEY,
       user: process.env.PRODUCTION_USER,
-      host: process.env.PRODUCTION_HOST,
+      host: [process.env.PRODUCTION_HOST],
       ssh_options: process.env.PRODUCTION_SSH_OPTIONS,
       ref: 'origin/main',
       repo: process.env.GITHUB_URL,
@@ -30,7 +30,7 @@ module.exports = {
     staging: {
       key: process.env.STAGING_SSH_KEY,
       user: process.env.STAGING_USER,
-      host: process.env.STAGING_HOST,
+      host: [process.env.STAGING_HOST],
       ssh_options: process.env.STAGING_SSH_OPTIONS,
       ref: 'origin/develop',
       repo: process.env.GITHUB_URL,
