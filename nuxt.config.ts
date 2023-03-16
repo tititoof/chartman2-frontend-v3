@@ -55,9 +55,6 @@ export default defineNuxtConfig({
       theme: 'monokai'
     }
   },
-  delayHydration: {
-    mode: 'mount'
-  },
   vite: {
     define: {
       'process.env.DEBUG': false,
