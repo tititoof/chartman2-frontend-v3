@@ -176,7 +176,7 @@ pipeline {
 
                                         touch ~/.ssh/known_hosts
                                         ssh-keyscan -t rsa $HomeStagingIp >> ~/.ssh/known_hosts
-                                        ssh-keyscan -t rsa $ProductionIp >> ~/.ssh/known_hosts
+
                                     '''
                                     if (env.BRANCH_NAME == 'main') {
                                         sh '''
