@@ -18,24 +18,24 @@ module.exports = {
   // Deployment Configuration
   deploy: {
     production: {
-      key: '/home/toofytroll/.ssh/id_ed25519.pub',
-      user: 'deploy',
-      host: ['51.75.194.189'],
-      ssh_options: 'Port=49604',
+      key: process.env.PRODUCTION_SSH_KEY,
+      user: process.env.PRODUCTION_USER,
+      host: process.env.PRODUCTION_HOST,
+      ssh_options: process.env.PRODUCTION_SSH_OPTIONS,
       ref: 'origin/main',
       repo: process.env.GITHUB_URL,
-      path: '/var/www/websites/chartman2.fr/frontend-v3',
-      'post-deploy': 'sh /home/deploy/chartman2.fr/frontend-v3/deploy.sh'
+      path: process.env.PRODUCTION_PATH,
+      'post-deploy': process.env.PRODUCTION_DEPLOY_SCRIPT
     },
     staging: {
-      key: '../.ssh/id_ed25519.pub',
-      user: 'toofytroll',
-      host: ['192.168.1.225'],
-      ssh_options: 'Port=22',
+      key: process.env.STAGING_SSH_KEY,
+      user: process.env.STAGING_USER,
+      host: process.env.STAGING_HOST,
+      ssh_options: process.env.STAGING_SSH_OPTIONS,
       ref: 'origin/develop',
       repo: process.env.GITHUB_URL,
-      path: '/var/www/chartman2.fr/frontend-v3',
-      'post-deploy': 'sh /home/toofytroll/chartman2.fr/frontend-v3/deploy.sh'
+      path: process.env.STAGING_PATH,
+      'post-deploy': process.env.STAGING_DEPLOY_SCRIPT
     }
   }
 }
