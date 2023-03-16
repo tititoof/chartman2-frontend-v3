@@ -48,11 +48,11 @@
   </v-card>
 </template>
 <script setup>
-let valid = ref(false);
-let name = ref("");
-let email = ref("");
-let subject = ref("");
-let message = ref("");
+const valid = ref(false);
+const name = ref("");
+const email = ref("");
+const subject = ref("");
+const message = ref("");
 
 const nameRules = [
   (v) => !!v || "Votre nom est requis",
