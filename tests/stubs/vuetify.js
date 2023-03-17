@@ -16,5 +16,8 @@ export const vuetifyStubs = {
   'v-spacer': true,
   'v-app-bar': true,
   'v-app': true,
-  'v-main': true
+  'v-main': true,
+  'v-form': true,
+  'v-text-field': true,
+  'v-textarea': true,
 }
