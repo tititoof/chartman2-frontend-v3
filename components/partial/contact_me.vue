@@ -88,7 +88,7 @@ const sendEmail = async () => {
         },
       }),
     })
-      .then((response) => response.json())
+      // .then((response) => response.json())
       .then((response) => {
         valid.value = false
         name.value = ""
