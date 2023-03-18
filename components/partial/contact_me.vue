@@ -9,42 +9,44 @@
 
       <v-divider />
     </v-responsive>
-    <v-form v-model="valid" ref="form">
-      <v-row>
-        <v-col cols="12">
-          <v-text-field v-model="name" flat label="Nom*" :rules="nameRules" />
-        </v-col>
-        <v-col cols="12">
-          <v-text-field
-            v-model="email"
-            flat
-            label="Email*"
-            :rules="emailRules"
-          />
-        </v-col>
-        <v-col cols="12">
-          <v-text-field
-            v-model="subject"
-            flat
-            label="Sujet*"
-            :rules="subjectRules"
-          />
-        </v-col>
-        <v-col cols="12">
-          <v-textarea
-            v-model="message"
-            flat
-            label="Message*"
-            :rules="messageRules"
-          />
-        </v-col>
-        <v-col class="mx-auto py-4" cols="auto">
-          <v-btn color="blue lighten-1" x-large dark @click="sendEmail">
-            Envoyer
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-form>
+    <v-container>
+      <v-form v-model="valid" ref="form">
+        <v-row>
+          <v-col cols="12">
+            <v-text-field v-model="name" flat label="Nom*" :rules="nameRules" />
+          </v-col>
+          <v-col cols="12">
+            <v-text-field
+              v-model="email"
+              flat
+              label="Email*"
+              :rules="emailRules"
+            />
+          </v-col>
+          <v-col cols="12">
+            <v-text-field
+              v-model="subject"
+              flat
+              label="Sujet*"
+              :rules="subjectRules"
+            />
+          </v-col>
+          <v-col cols="12">
+            <v-textarea
+              v-model="message"
+              flat
+              label="Message*"
+              :rules="messageRules"
+            />
+          </v-col>
+          <v-col class="mx-auto py-4" cols="auto">
+            <v-btn color="blue lighten-1" x-large dark @click="sendEmail">
+              Envoyer
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-form>
+    </v-container>
   </v-card>
 </template>
 <script setup>

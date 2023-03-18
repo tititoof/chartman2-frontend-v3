@@ -47,7 +47,7 @@
       <v-btn
         variant="plain"
         class="text-decoration-none font-italic text-blue-darken-4 mx-0 px-0"
-        @click="useScroll('features')"
+        @click="useScroll('contact-me')"
       >
         message
       </v-btn>
