@@ -1,77 +1,44 @@
-{
-  "numTotalTestSuites": 4,
-  "numPassedTestSuites": 4,
-  "numFailedTestSuites": 0,
-  "numPendingTestSuites": 0,
-  "numTotalTests": 4,
-  "numPassedTests": 4,
-  "numFailedTests": 0,
-  "numPendingTests": 0,
-  "numTodoTests": 0,
-  "startTime": 1677697667206,
-  "success": true,
-  "testResults": [
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "Pages : index"
-          ],
-          "fullName": " Pages : index is a Vue instance",
-          "status": "passed",
-          "title": "is a Vue instance",
-          "duration": 20,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Pages : index"
-          ],
-          "fullName": " Pages : index should not need to be imported",
-          "status": "passed",
-          "title": "should not need to be imported",
-          "duration": 2,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1677697668679,
-      "endTime": 1677697668701,
-      "status": "passed",
-      "message": "",
-      "name": "/home/toofytroll/Projets/chartman2/frontend-v3/tests/pages/index.spec.ts"
-    },
-    {
-      "assertionResults": [
-        {
-          "ancestorTitles": [
-            "",
-            "Pages : index"
-          ],
-          "fullName": " Pages : index is a Vue instance",
-          "status": "passed",
-          "title": "is a Vue instance",
-          "duration": 20,
-          "failureMessages": []
-        },
-        {
-          "ancestorTitles": [
-            "",
-            "Pages : index"
-          ],
-          "fullName": " Pages : index should not need to be imported",
-          "status": "passed",
-          "title": "should not need to be imported",
-          "duration": 4,
-          "failureMessages": []
-        }
-      ],
-      "startTime": 1677697668679,
-      "endTime": 1677697668703,
-      "status": "passed",
-      "message": "",
-      "name": "/home/toofytroll/Projets/chartman2/frontend-v3/tests/pages/legal_notices.spec.ts"
-    }
-  ]
-}
+<testExecutions version="1">
+  <file path="tests/components/bar/app.spec.ts">
+    <testCase name="Components : App - is a Vue instance" duration="157" />
+    <testCase name="Components : App - toggle bottom bar" duration="47" />
+  </file>
+  <file path="tests/components/partial/contact_me.spec.ts">
+    <testCase name="Components : ContactMe - is a Vue instance" duration="177" />
+    <testCase name="Components : ContactMe - expect form values" duration="60" />
+    <testCase name="Components : ContactMe - sendEmail" duration="39" />
+  </file>
+  <file path="tests/layouts/default.spec.ts">
+    <testCase name="Layouts : default - is a Vue instance" duration="121" />
+  </file>
+  <file path="tests/pages/blog/my_ror_design.spec.ts">
+    <testCase name="Pages : blog/my_ror_design - is a Vue instance" duration="151" />
+    <testCase name="Pages : blog/my_ror_design - components should be imported" duration="39" />
+  </file>
+  <file path="tests/pages/blog/nuxt_3_introduction.spec.ts">
+    <testCase name="Pages : blog/nuxt_3_introduction - is a Vue instance" duration="177" />
+    <testCase name="Pages : blog/nuxt_3_introduction - components should be imported" duration="48" />
+  </file>
+  <file path="tests/pages/index.spec.ts">
+    <testCase name="Pages : index - is a Vue instance" duration="38" />
+    <testCase name="Pages : index - components should be imported" duration="4" />
+  </file>
+  <file path="tests/pages/legal_notices.spec.ts">
+    <testCase name="Pages : legal_notices - is a Vue instance" duration="46" />
+    <testCase name="Pages : legal_notices - components should be imported" duration="6" />
+  </file>
+  <file path="tests/store/menu.spec.ts">
+    <testCase name="Store: Menu - initializes with correct values" duration="16" />
+    <testCase name="Store: Menu - test visibledItems" duration="2" />
+  </file>
+  <file path="tests/store/sidebar.spec.ts">
+    <testCase name="Store: Sidebar - initializes with correct values" duration="11" />
+    <testCase name="Store: Sidebar - test toggleLeft" duration="2" />
+    <testCase name="Store: Sidebar - test toggleBottom" duration="1" />
+  </file>
+  <file path="tests/store/user.spec.ts">
+    <testCase name="Store: User - initializes with correct values" duration="8" />
+    <testCase name="Store: User - test toggle" duration="1" />
+    <testCase name="Store: User - test isPhone" duration="1" />
+  </file>
+</testExecutions>

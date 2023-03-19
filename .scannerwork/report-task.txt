@@ -1,0 +1,6 @@
+projectKey=chartman2-frontend-v3
+serverUrl=http://192.168.1.223:9000
+serverVersion=9.9.0.65466
+dashboardUrl=http://192.168.1.223:9000/dashboard?id=chartman2-frontend-v3
+ceTaskId=AYb4iGCzy6bVJ52E8lCH
+ceTaskUrl=http://192.168.1.223:9000/api/ce/task?id=AYb4iGCzy6bVJ52E8lCH
