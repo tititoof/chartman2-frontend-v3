@@ -25,14 +25,22 @@
               :color="color"
             />
 
-            <v-img v-else color="primary" size="300" :image="src" />
+            <v-img
+              v-else
+              color="primary"
+              size="300"
+              :image="src"
+            />
             <v-card-title>
               <div class="font-weight-black text-uppercase">
                 {{ title }}
               </div>
             </v-card-title>
             <v-card-text class="title font-weight-light mb-5">
-              <v-sheet :height="30" color="secondary-container">
+              <v-sheet
+                :height="30"
+                color="secondary-container"
+              >
                 {{ text }}
               </v-sheet>
             </v-card-text>
@@ -51,7 +59,7 @@
               </v-btn>
             </v-card-actions>
           </v-card>
-          <div class="d-flex justify-center"></div>
+          <div class="d-flex justify-center" />
         </v-col>
       </v-row>
     </v-container>

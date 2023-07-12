@@ -1,7 +1,11 @@
 <template>
   <v-container>
     <v-row class="d-flex">
-      <v-col cols="12" sm="12" class="d-flex justify-center">
+      <v-col
+        cols="12"
+        sm="12"
+        class="d-flex justify-center"
+      >
         <div>
           <v-icon
             role="img"
@@ -14,7 +18,11 @@
       </v-col>
     </v-row>
     <v-row class="d-flex">
-      <v-col cols="12" sm="12" class="d-flex text-h4 justify-center">
+      <v-col
+        cols="12"
+        sm="12"
+        class="d-flex text-h4 justify-center"
+      >
         {{ title }}
       </v-col>
     </v-row>
@@ -34,7 +42,20 @@
 <script setup>
 import { mdiLanguageRubyOnRails, mdiNuxt } from '@mdi/js'
 
-const props = defineProps(['title', 'icon', 'subtitle'])
+const props = defineProps({
+  title: {
+    type: String,
+    default: ''
+  },
+  icon: {
+    type: String,
+    default: ''
+  },
+  subtitle: {
+    type: String,
+    default: ''
+  }
+})
 
 const icon = computed(() => {
   switch (props.icon) {

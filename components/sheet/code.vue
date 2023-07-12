@@ -7,8 +7,15 @@
     color="secondary"
     width="100%"
   >
-    <html :class="storeThemeDark === false ? 'light' : 'dark'" style="overflow-y: initial">
-      <ContentDoc :path="path" unwrap="p" style="width: 85vw;overflow-x: auto; white-space: nowrap" />
+    <html
+      :class="storeThemeDark === false ? 'light' : 'dark'"
+      style="overflow-y: initial"
+    >
+      <ContentDoc
+        :path="props.path"
+        unwrap="p"
+        style="width: 85vw;overflow-x: auto; white-space: nowrap"
+      />
     </html>
   </v-sheet>
 </template>
@@ -17,7 +24,12 @@ import { useUsersStore } from '~/store/usersStore'
 
 const usersStore = useUsersStore()
 
-const props = defineProps(['path'])
+const props = defineProps({
+  path: {
+    type: String,
+    default: ''
+  }
+})
 
 const storeThemeDark = computed(() => usersStore.isDarkTheme)
 </script>

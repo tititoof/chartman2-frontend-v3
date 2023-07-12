@@ -1,6 +1,5 @@
 <template>
   <v-responsive id="ror-design-introduction">
-
     <blog-title
       title="RoR design pattern"
       icon="mdiLanguageRubyOnRails"

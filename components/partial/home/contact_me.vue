@@ -1,13 +1,24 @@
 <template>
   <v-card color="info-container">
-    <v-container class="text-center" id="contact-me">
+    <v-container
+      id="contact-me"
+      class="text-center"
+    >
       <section-title title="Contactez moi" />
 
       <v-responsive>
-        <v-form v-model="valid" ref="form">
+        <v-form
+          ref="form"
+          v-model="valid"
+        >
           <v-row>
             <v-col cols="12">
-              <v-text-field v-model="name" flat label="Nom*" :rules="nameRules" />
+              <v-text-field
+                v-model="name"
+                flat
+                label="Nom*"
+                :rules="nameRules"
+              />
             </v-col>
             <v-col cols="12">
               <v-text-field
@@ -33,8 +44,16 @@
                 :rules="messageRules"
               />
             </v-col>
-            <v-col class="mx-auto py-4" cols="12">
-              <v-btn color="primary" block dark @click="sendEmail">
+            <v-col
+              class="mx-auto py-4"
+              cols="12"
+            >
+              <v-btn
+                color="primary"
+                block
+                dark
+                @click="sendEmail"
+              >
                 Envoyer
               </v-btn>
             </v-col>

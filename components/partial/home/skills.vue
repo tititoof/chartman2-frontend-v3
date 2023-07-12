@@ -1,6 +1,9 @@
 <template>
   <v-card color="info-container">
-    <v-container id="features" class="text-center py-12">
+    <v-container
+      id="features"
+      class="text-center py-12"
+    >
       <section-title title="Mes compétences" />
 
       <section
@@ -16,7 +19,7 @@
         </span>
         <v-row class="d-flex justify-space-around">
           <v-col
-            v-for="({ type, src, title, text }, iSkill) in skill"
+            v-for="({ type, src, title: skillTitle, text: skillText }, iSkill) in skill"
             :key="iSkill"
             cols="12"
             md="3"
@@ -34,17 +37,31 @@
                 size="88"
                 rounded="2"
               >
-                <v-icon size="x-large">{{ src }}</v-icon>
+                <v-icon size="x-large">
+                  {{ src }}
+                </v-icon>
               </v-avatar>
-              <v-avatar v-else color="primary-container" size="88" rounded="2">
-                <v-avatar color="primary-container" size="42" rounded="2" :image="src" />
+              <v-avatar
+                v-else
+                color="primary-container"
+                size="88"
+                rounded="2"
+              >
+                <v-avatar
+                  color="primary-container"
+                  size="42"
+                  rounded="2"
+                  :image="src"
+                />
               </v-avatar>
               <v-card-title
                 class="justify-center text-subtitle-1 font-weight-black text-uppercase"
               >
-                {{ title }}
+                {{ skillTitle }}
               </v-card-title>
-              <v-card-text class="subtitle-1"> {{ text }} </v-card-text>
+              <v-card-text class="subtitle-1">
+                {{ skillText }}
+              </v-card-text>
             </v-card>
           </v-col>
         </v-row>

@@ -6,9 +6,9 @@
       position="fixed"
       location="bottom right"
       color="info"
-      @click="scrollToTop"
       :icon="mdiChevronUp"
       transition="fade-transition"
+      @click="scrollToTop"
     />
   </transition>
 </template>

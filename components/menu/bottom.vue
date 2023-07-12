@@ -1,53 +1,63 @@
 <template>
-  <v-footer app min-height="72" color="background">
+  <v-footer
+    app
+    min-height="72"
+    color="background"
+  >
     <v-container>
       <v-row>
         <v-col
-          v-for="(s, i) in social"
-          :key="i"
-          cols="2"
+          cols="4"
           class="d-flex flex-wrap justify-start"
         >
-          <v-btn
-            :href="s.route"
-            color="background"
-            variant="flat"
-            target="_blank"
-            class="px-0"
+          <v-btn-group
+            v-for="(s, i) in social"
+            :key="i"
           >
-            <v-icon size="large" :icon="s.icon" />
-          </v-btn>
+            <v-btn
+              :href="s.route"
+              color="background"
+              variant="flat"
+              target="_blank"
+              size="small"
+              class="px-0"
+            >
+              <v-icon
+                size="large"
+                :icon="s.icon"
+              />
+            </v-btn>
+          </v-btn-group>
         </v-col>
         <v-col
-          class="d-flex flex-wrap justify-end align-center flex-shrink-1 text-white"
-          cols="8"
+          cols="4"
+          class="align-self-center text-center"
         >
-          <v-btn
-            color="info"
-            :nuxt="true"
-            to="/legal_notices"
-            variant="plain"
+          {{ currentRangeYears }}
+        </v-col>
+        <v-col
+          v-if="!mobile"
+          class="d-flex flex-wrap justify-end align-center flex-shrink-1 text-white"
+          cols="4"
+        >
+          <v-btn-group
+            v-for="(s, i) in links"
+            :key="i"
           >
-            {{ $t("legal_notices.title") }}
-          </v-btn>
-          <template v-if="!mobile">
-            Created with&nbsp;
-            <template
-              v-for="(s, i) in links"
-              :key="i"
+            <v-btn
+              :href="s.href"
+              color="background"
+              variant="flat"
+              target="_blank"
+              size="small"
+              class="px-0"
             >
-              <a
-                color="info"
-                :href="s.href"
-                target="_blank"
-              >
-                {{ s.name }}
-              </a>
-              <template v-if="i < links.length - 1">
-                &nbsp;-&nbsp;
-              </template>
-            </template>
-          </template>
+              <v-icon
+                size="large"
+                :icon="s.icon"
+              />
+            </v-btn>
+          </v-btn-group>
         </v-col>
       </v-row>
     </v-container>
@@ -55,8 +65,8 @@
 </template>
 
 <script setup lang="ts">
-import { mdiFacebook, mdiLinkedin } from "@mdi/js"
-import { useTheme, useDisplay } from 'vuetify'
+import { mdiFacebook, mdiLinkedin, mdiNuxt, mdiLanguageRubyOnRails, mdiVuetify } from "@mdi/js"
+import { useDisplay } from 'vuetify'
 
 const { mobile } = useDisplay()
 const { $dayjs } = useNuxtApp()
@@ -81,19 +91,23 @@ const social = [
 const links = [
   {
     name: 'NuxtJS',
+    icon: mdiNuxt,
     href: 'https://nuxt.com/',
   },
   {
     name: 'Vuetify',
+    icon: mdiVuetify,
     href: 'https://vuetifyjs.com/en/',
   },
   {
     name: 'RoR',
+    icon: mdiLanguageRubyOnRails,
     href: 'https://rubyonrails.org/',
   },
-  {
-    name: 'Illustrations by IRA Design',
-    href: 'https://iradesign.io',
-  }
+  // {
+  //   name: 'Illustrations by IRA Design',
+  //   icon: '',
+  //   href: 'https://iradesign.io',
+  // }
 ]
 </script>

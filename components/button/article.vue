@@ -5,10 +5,18 @@
       sm="12"
       class="d-flex text-subtitle-1 justify-space-evenly pt-2"
     >
-      <v-btn to="/" variant="tonal" color="info">
+      <v-btn
+        to="/"
+        variant="tonal"
+        color="info"
+      >
         <v-icon :icon="mdiHome" />
       </v-btn>
-      <v-btn to="/articles" variant="tonal" color="info">
+      <v-btn
+        to="/articles"
+        variant="tonal"
+        color="info"
+      >
         <v-icon :icon="mdiFileDocumentMultiple" />
       </v-btn>
     </v-col>

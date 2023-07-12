@@ -3,10 +3,11 @@
     <v-container class="py-12">
       <page-title :title="$t('legal_notices.title')" />
 
-        <partial-legal-notices />
-      </v-container>
-  </v-row>
+      <button-article />
 
+      <partial-legal-notices />
+    </v-container>
+  </v-row>
 </template>
 <script setup>
 useHead({

@@ -1,13 +1,18 @@
 <template>
   <v-row>
-    <v-col cols="12" sm="12">
-      <div class="justify-center text-h3">Conclusion</div>
+    <v-col
+      cols="12"
+      sm="12"
+    >
+      <div class="justify-center text-h3">
+        Conclusion
+      </div>
       <div class="justify-center text-body-1 py-6">
-        Voili voilou,<br />
-        C'est tout pour mon premier article,<br />
-        J'espère que ça vous a plu,<br />
-        La prochaine fois, on regardera le côté frontend avec VueJS & NuxtJS.<br />
-        <br />
+        Voili voilou,<br>
+        C'est tout pour mon premier article,<br>
+        J'espère que ça vous a plu,<br>
+        La prochaine fois, on regardera le côté frontend avec VueJS & NuxtJS.<br>
+        <br>
       </div>
     </v-col>
   </v-row>
