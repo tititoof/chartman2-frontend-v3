@@ -20,7 +20,7 @@ import { mdiChevronUp } from '@mdi/js'
 const showBackToTop = ref(false)
 
 const handleScroll = () => {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+  const scrollTop = window.scrollY || document.documentElement.scrollTop
 
   showBackToTop.value = scrollTop > 0
 }

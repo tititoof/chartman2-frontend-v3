@@ -41,7 +41,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/i18n',
     '@pinia-plugin-persistedstate/nuxt',
-    '@nuxt/content'
+    '@nuxt/content',
+    'nuxt-vitest'
   ],
   i18n: {
     langDir: 'locales',
@@ -65,6 +66,12 @@ export default defineNuxtConfig({
         file: 'fr.json',
       }
     ],
+  },
+  piniaPersistedstate: {
+    cookieOptions: {
+      sameSite: 'strict',
+    },
+    storage: 'localStorage'
   },
   content: {
     highlight: {
