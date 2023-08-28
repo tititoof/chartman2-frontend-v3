@@ -8,7 +8,7 @@
       <v-icon
         size="x-large"
         left
-        :icon="mdiScaleBalance"
+        :icon="icon"
       />
       <span class="text-h6 font-weight-light align-center pl-2">
         {{ props.title }}
@@ -17,12 +17,37 @@
   </v-row>
 </template>
 <script setup>
-import { mdiScaleBalance } from '@mdi/js'
+  import {
+    mdiScaleBalance,
+    mdiLoginVariant,
+    mdiAlphaXCircleOutline,
+    mdiGauge,
+    mdiAccount,
+  } from '@mdi/js'
 
-const props = defineProps({
-  title: {
-    type: String,
-    default: ''
-  }
-})
+  const props = defineProps({
+    title: {
+      type: String,
+      default: '',
+    },
+    icon: {
+      type: String,
+      default: 'mdiAlphaXCircleOutline',
+    },
+  })
+
+  const icon = computed(() => {
+    switch (props.icon) {
+      case 'mdiScaleBalance':
+        return mdiScaleBalance
+      case 'mdiLoginVariant':
+        return mdiLoginVariant
+      case 'mdiAlphaXCircleOutline':
+        return mdiAlphaXCircleOutline
+      case 'mdiGauge':
+        return mdiGauge
+      case 'mdiAccount':
+        return mdiAccount
+    }
+  })
 </script>

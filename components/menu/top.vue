@@ -14,6 +14,13 @@
     </template>
 
     <v-app-bar-title>
+      <client-only>
+        <v-icon
+          v-if="isConnected"
+          :icon="mdiMenu"
+          @click="toggleLeftMenu"
+        />
+      </client-only>
       {{ $t('global.name') }}
     </v-app-bar-title>
 
@@ -30,7 +37,10 @@
           />
         </template>
 
-        <v-list color="primary" bg-color="primary-container">
+        <v-list
+          color="primary"
+          bg-color="primary-container"
+        >
           <v-list-item
             v-for="(item, i) in menuItems"
             :key="i"
@@ -58,19 +68,28 @@
   </v-app-bar>
 </template>
 <script setup>
-import { mdiDotsVertical, mdiThemeLightDark, mdiScaleBalance } from '@mdi/js'
+import { mdiDotsVertical, mdiThemeLightDark, mdiScaleBalance, mdiLoginVariant, mdiMenu } from '@mdi/js'
 import { useUsersStore } from '~/store/usersStore'
+import { useNavsStore } from '~/store/navsStore'
 
 const router = useRouter()
 const usersStore = useUsersStore()
+const navsStore = useNavsStore()
 const src = ref('/img/android-chrome-192x192.png')
-const menuItems = ref([
+const menuItems = reactive([
   {
     name: 'legal_notices.title',
     icon: mdiScaleBalance,
     to: '/legal_notices',
   },
+  {
+    name: 'auth.log_in',
+    icon: mdiLoginVariant,
+    to: '/auth/log_in',
+  }
 ])
+
+const isConnected = computed(() => usersStore.getIsConnected)
 
 const toggleTheme = () => {
   usersStore.toggleDarkTheme()
@@ -78,5 +97,9 @@ const toggleTheme = () => {
 
 const backToHomePage = () => {
   router.push({ path: '/' })
+}
+
+const toggleLeftMenu = () => {
+  navsStore.setLeft(! navsStore.isLeft)
 }
 </script>

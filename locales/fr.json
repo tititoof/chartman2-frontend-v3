@@ -33,8 +33,52 @@
       "hosting_name": "OVH"
     }
   },
+  "auth": {
+    "log_in": "Connexion",
+    "log_out": "Déconnexion",
+    "sign_in": "Se connecter",
+    "sign_out": "Se déconnecter",
+    "email": "Adresse email",
+    "password": "Mot de passe",
+    "successed": "Connexion réussie.",
+    "failed": "Le couple identifiant / mot de passe est invalide."
+  },
+  "form": {
+    "rules": {
+      "required": "Ce champ est obligatoire.",
+      "min_8_caracters": "Ce champ doit contenir au moins 8 caractères.",
+      "email_valid": "Adresse email non valide.",
+      "lessThan2Mb": "Doit être inférieur à 2Mb."
+    },
+    "buttons": {
+      "save": "Enregistrer",
+      "update": "Mettre à jour"
+    }
+  },
   "language": {
     "french": "Français",
     "english": "Anglais"
+  },
+  "home": {
+    "dashboard": "Tableau de bord",
+    "organizations": "Organisations",
+    "repositories": "Dépôts",
+    "projects": "Projets",
+    "source_check": "CI/CD",
+    "code_quality": "Qualité de code",
+    "profile": "Profil"
+  },
+  "profile": {
+    "address": "Adresse",
+    "date_of_birth": "Date de naissance",
+    "email": "Adresse email",
+    "first_name": "Prénom",
+    "last_name": "Nom",
+    "nickname": "Surnom",
+    "phone": "Téléphone",
+    "country": "Pays",
+    "state": "Région",
+    "city": "Ville",
+    "avatar": "Avatar"
   }
 }

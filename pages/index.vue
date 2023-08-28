@@ -1,16 +1,15 @@
 <template>
   <v-responsive>
-    <partial-home-presentation />
-    <partial-home-about-me />
-    <partial-home-skills />
-    <partial-home-technologies />
-    <partial-home-articles />
-    <partial-home-contact-me />
+    <partial-main-presentation />
+    <partial-main-about-me />
+    <partial-main-skills />
+    <partial-main-technologies />
+    <partial-main-articles />
+    <partial-main-contact-me />
   </v-responsive>
 </template>
 
 <script setup>
-
 </script>
 
 <style>

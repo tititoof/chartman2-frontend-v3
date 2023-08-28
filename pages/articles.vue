@@ -1,6 +1,6 @@
 <template>
   <v-responsive>
-    <partial-home-articles />
+    <partial-main-articles />
   </v-responsive>
 </template>
 <script setup>

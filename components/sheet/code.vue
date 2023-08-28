@@ -7,16 +7,18 @@
     color="secondary"
     width="100%"
   >
-    <html
-      :class="storeThemeDark === false ? 'light' : 'dark'"
-      style="overflow-y: initial"
-    >
-      <ContentDoc
-        :path="props.path"
-        unwrap="p"
-        style="width: 85vw;overflow-x: auto; white-space: nowrap"
-      />
-    </html>
+    <client-only>
+      <html
+        :class="storeThemeDark === false ? 'light' : 'dark'"
+        style="overflow-y: initial"
+      >
+        <ContentDoc
+          :path="props.path"
+          unwrap="p"
+          style="width: 85vw;overflow-x: auto; white-space: nowrap"
+        />
+      </html>
+    </client-only>
   </v-sheet>
 </template>
 <script setup>

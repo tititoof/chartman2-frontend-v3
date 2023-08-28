@@ -10,6 +10,7 @@
       >
         <slot />
 
+        <NuxtSnackbar />
         <button-back-to-top />
       </v-main>
     </v-app>
@@ -22,12 +23,14 @@
 import { useTheme, useDisplay } from 'vuetify'
 import { useUsersStore } from '~/store/usersStore'
 
+const config = useRuntimeConfig()
 const usersStore = useUsersStore()
 const nuxtApp = useNuxtApp()
 const { locale } = useI18n()
 const { mobile } = useDisplay()
 
 useHead({
+  title: config.public.appName,
   htmlAttrs: {
     lang: locale.value || 'fr',
   },

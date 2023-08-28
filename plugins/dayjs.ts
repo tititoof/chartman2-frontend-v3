@@ -8,6 +8,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.provide('dayjs', dayjs)
 })
 
+// @ts-ignore
 declare module '#app' {
   interface NuxtApp {
     $dayjs: dayjs.Dayjs

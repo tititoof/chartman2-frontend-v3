@@ -27,5 +27,6 @@ export const vuetifyStubs = {
   'v-list': true,
   'v-menu': true,
   'v-btn-group': true,
-  'v-footer': true
+  'v-footer': true,
+  'v-navigation-drawer': true,
 }

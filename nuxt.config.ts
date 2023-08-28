@@ -1,11 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-
 import * as CryptoJS from 'crypto-js'
-const key = CryptoJS.enc.Utf8.parse(process.env.CRYPT_SECRET_KEY)
-const iv = CryptoJS.enc.Utf8.parse(process.env.CRYPT_SECRET_KEY)
 
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+  },
   app: {
     head: {
       meta: [
@@ -20,21 +19,26 @@ export default defineNuxtConfig({
         { name: 'twitter:title', content: '[twitter:title]' },
         { name: 'twitter:description', content: '[twitter:description]' },
         { name: 'twitter:image', content: '[twitter:image]' },
-        { name: 'twitter:card', content: 'summary' }
+        { name: 'twitter:card', content: 'summary' },
       ],
       noscript: [
         // <noscript>JavaScript is required</noscript>
-        { children: 'JavaScript is required' }
-      ]
+        { children: 'JavaScript is required' },
+      ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
-    layoutTransition: { name: 'layout', mode: 'out-in' }
+    layoutTransition: { name: 'layout', mode: 'out-in' },
   },
   runtimeConfig: {
     apiBaseUrl: process.env.API_BASE_URL,
-    cryptSecretKey: process.env.CRYPT_SECRET_KEY,
-    cryptKey: key,
-    cryptIV: iv
+    public: {
+      apiBaseUrl: process.env.API_BASE_URL,
+      appName: process.env.APP_NAME,
+      appStorageName: process.env.APP_STORAGE_NAME,
+      cryptSecretKey: process.env.CRYPT_SECRET_KEY,
+      cryptKey: CryptoJS.enc.Utf8.parse(process.env.CRYPT_SECRET_KEY),
+      cryptIV: CryptoJS.enc.Utf8.parse(process.env.CRYPT_SECRET_KEY),
+    },
   },
   modules: [
     '@vueuse/nuxt',
@@ -42,7 +46,8 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@pinia-plugin-persistedstate/nuxt',
     '@nuxt/content',
-    'nuxt-vitest'
+    'nuxt-vitest',
+    'nuxt-snackbar',
   ],
   i18n: {
     langDir: 'locales',
@@ -50,44 +55,61 @@ export default defineNuxtConfig({
     defaultLocale: 'fr',
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: 'my_custom_cookie_name'
+      cookieKey: 'my_custom_cookie_name',
     },
     locales: [
       {
         code: 'en',
-        file: 'en.json'
+        file: 'en.json',
       },
       {
         code: 'es',
-        file: 'es.json'
+        file: 'es.json',
       },
       {
         code: 'fr',
         file: 'fr.json',
-      }
+      },
     ],
   },
   piniaPersistedstate: {
     cookieOptions: {
       sameSite: 'strict',
     },
-    storage: 'localStorage'
+    storage: 'localStorage',
   },
   content: {
+    watch: false,
     highlight: {
       // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
       theme: {
         dark: 'github-light',
-        default: 'github-dark'
+        default: 'github-dark',
       },
     },
     markdown: {
       tags: {
-        code: 'code'
-      }
-    }
+        code: 'code',
+      },
+    },
+  },
+  snackbar: {
+    top: true,
+    right: true,
+    duration: 5000,
   },
   build: {
-    transpile: ['vuetify'],
+    transpile: ['vuetify', '@vuepic/vue-datepicker'],
+  },
+  vite: {
+    server: {
+      hmr: {
+        protocol: 'wss',
+        clientPort: 443,
+        port: 24678,
+        path: 'hmr/',
+        timeout: 3,
+      },
+    },
   },
 })
