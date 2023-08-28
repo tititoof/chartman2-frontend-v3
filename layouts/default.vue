@@ -51,17 +51,22 @@ const storeThemeDefined = computed(() => usersStore.isThemeDefined)
 usersStore.setIsPhone(mobile.value)
 
 nuxtApp.hook('page:finish', () => {
-  theme.global.name.value =
-    storeThemeDefined.value === true
-      ? storeThemeDark.value === true
-        ? 'sharHubDarkTheme'
-        : 'sharHubLightTheme'
-      : isDark.value === true
-      ? 'sharHubDarkTheme'
-      : 'sharHubLightTheme'
+  theme.global.name.value = setTheme()
 
   usersStore.setDarkTheme(theme.global.name.value === 'sharHubDarkTheme')
 })
+
+const setTheme = () => {
+  if (storeThemeDefined.value === true) {
+    return storeThemeDark.value === true
+      ? 'sharHubDarkTheme'
+      : 'sharHubLightTheme'
+  } else if (isDark.value === true) {
+    return 'sharHubDarkTheme'
+  } else {
+    return 'sharHubLightTheme'
+  }
+}
 
 watch(storeThemeDark, (value) => {
   theme.global.name.value =
