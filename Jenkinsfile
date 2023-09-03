@@ -147,6 +147,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
+                    echo 'Deploy finished'
                     // withCredentials([string(credentialsId: 'home-dev-staging-ip', variable: 'HomeStagingIp')]) {
                     //     withCredentials([string(credentialsId: 'production-ip-1', variable: 'ProductionIp')]) {
                     //         withCredentials([string(credentialsId: 'production-port', variable: 'ProductionPort')]) {
