@@ -19,7 +19,7 @@
         De bons tutoriels sur Ruby on rails en français
         <a
           class="white--text"
-          :href="$sanitize('https://grafikart.fr/tutoriels/ruby-on-rails')"
+          href="https://grafikart.fr/tutoriels/ruby-on-rails"
           target="_blank"
         >grafikart</a><br>
         <page-text-caption text="app/models/message.rb" />

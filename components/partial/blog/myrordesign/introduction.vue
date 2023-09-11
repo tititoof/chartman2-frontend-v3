@@ -21,22 +21,18 @@
         Il utilise l'architecture MVC (Modèle-vue-contrôleur).<br>
         Pour plus d'informations sur le MVC n'hésitez pas à visiter les sites
         <a
-          :href="
-            $sanitize(
-              'https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur'
-            )
-          "
+          href="https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur"
           target="_blank"
         >Wikipédia</a>
         <br>
         Ruby est un langage de programmation que j'affectionne pour sa synaxe, son
         élégance (<a
-          :href="$sanitize('https://www.ruby-lang.org/fr/')"
+          href="https://www.ruby-lang.org/fr/"
           target="_blank"
         >Ruby lang</a>)<br>
         En fonction du besoin, on peut utiliser plusieurs
         <a
-          :href="$sanitize('https://refactoring.guru/fr/design-patterns/ruby')"
+          href="https://refactoring.guru/fr/design-patterns/ruby"
           target="_blank"
         >design patterns</a>
         avec Ruby on Rails<br>

@@ -1,7 +1,7 @@
 import { useUsersStore } from '~/store/usersStore'
 
 class AuthModule {
-  static moduleName = "auth"
+  static moduleName = 'auth'
 
   async signIn (email: string, password: string) {
     const { $api } = useNuxtApp()

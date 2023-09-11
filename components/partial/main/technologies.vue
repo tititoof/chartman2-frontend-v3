@@ -26,7 +26,7 @@
 
             <v-btn
               color="white"
-              :href="$sanitize(url)"
+              :href="url"
               outlined
               large
               target="_blank"

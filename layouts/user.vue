@@ -14,6 +14,7 @@
         <slot />
 
         <NuxtSnackbar />
+        <page-snackbar />
         <button-back-to-top />
       </v-main>
     </v-app>
@@ -47,21 +48,12 @@ useHead({
 })
 
 const theme = useTheme()
-const isDark = usePreferredDark()
 const storeThemeDark = computed(() => usersStore.isDarkTheme)
-const storeThemeDefined = computed(() => usersStore.isThemeDefined)
 
 usersStore.setIsPhone(mobile.value)
 
 nuxtApp.hook('page:finish', () => {
-  theme.global.name.value =
-    storeThemeDefined.value === true
-      ? storeThemeDark.value === true
-        ? 'sharHubDarkTheme'
-        : 'sharHubLightTheme'
-      : isDark.value === true
-      ? 'sharHubDarkTheme'
-      : 'sharHubLightTheme'
+  theme.global.name.value = setUserTheme()
 
   usersStore.setDarkTheme(theme.global.name.value === 'sharHubDarkTheme')
 })

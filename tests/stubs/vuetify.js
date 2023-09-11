@@ -29,4 +29,5 @@ export const vuetifyStubs = {
   'v-btn-group': true,
   'v-footer': true,
   'v-navigation-drawer': true,
+  'v-date-picker': true
 }

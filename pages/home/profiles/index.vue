@@ -18,8 +18,7 @@
 
 <script setup>
   definePageMeta({
-    middleware: ['auth'],
-    layout: 'user',
+    middleware: ['auth']
   })
 
   const { $procedures, $services } = useNuxtApp()
@@ -34,7 +33,21 @@
     $services.locations.getCities(stateId)
   }
 
-  const onSubmit = (firstName, lastName, nickname, phone, dateOfBirth, city) => {
-    $services.profiles.setCurrentUser(firstName, lastName, nickname, phone, dateOfBirth, city)
+  const onSubmit = async (
+    firstName,
+    lastName,
+    nickname,
+    phone,
+    dateOfBirth,
+    city
+  ) => {
+    await $services.profiles.setCurrentUser(
+      firstName,
+      lastName,
+      nickname,
+      phone,
+      dateOfBirth,
+      city
+    )
   }
 </script>

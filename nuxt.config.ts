@@ -2,6 +2,9 @@
 import * as CryptoJS from 'crypto-js'
 
 export default defineNuxtConfig({
+  experimental: {
+    asyncContext: true
+  },
   devtools: {
     enabled: true,
   },

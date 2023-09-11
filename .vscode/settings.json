@@ -1,5 +1,8 @@
 {
     "files.trimTrailingWhitespace": true,
     "editor.tabSize": 2,
-    "vitest.enable": true
+    "vitest.enable": true,
+    "sonarlint.connectedMode.project": {
+        "projectKey": "sharehub-frontend-dev"
+    }
 }

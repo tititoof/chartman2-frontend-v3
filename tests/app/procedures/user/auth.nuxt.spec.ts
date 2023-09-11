@@ -1,11 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
-import AuthModule from '~/app/procedures/user/auth' // Mettez le chemin correct
-// @ts-ignore
-import * as nuxt from '#app'
+import AuthModule from '~/app/procedures/user/auth'
 
 describe('AuthModule', () => {
-  // @ts-ignore
+  let authModule: AuthModule
+
   vi.stubGlobal("useNuxtApp", () => ({
     $services: {
       auth: {
@@ -17,7 +16,10 @@ describe('AuthModule', () => {
     },
   }))
 
-  let authModule: AuthModule
+  // Mock de current
+  const mockCurrent = vi.fn().mockResolvedValue({
+    // Mockez ici les données utilisateur
+  })
 
   beforeEach(() => {
     authModule = new AuthModule()
@@ -26,10 +28,6 @@ describe('AuthModule', () => {
   it('signIn should return user data on successful login', async () => {
     // Mock de signIn
     const mockSignIn = vi.fn().mockResolvedValue(true)
-    // Mock de current
-    const mockCurrent = vi.fn().mockResolvedValue({
-      // Mockez ici les données utilisateur
-    })
 
     // Injectez les mocks dans useNuxtApp
     // @ts-ignore

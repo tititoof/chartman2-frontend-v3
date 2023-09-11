@@ -33,7 +33,7 @@ class ProfilesModule {
     dateOfBirth: string,
     city: string
   ) {
-    const { $api } = useNuxtApp()
+    const { $api, $services } = useNuxtApp()
     const profilesStore = useProfilesStore()
 
     let result = false
@@ -59,6 +59,14 @@ class ProfilesModule {
         result = false
       })
 
+    if (result) {
+      // @ts-ignore
+      $services.notifications.success('form.successed')
+    } else {
+      // @ts-ignore
+      $services.notifications.error('form.failed')
+    }
+
     return result
   }
 
@@ -67,10 +75,10 @@ class ProfilesModule {
     // @ts-ignore
     await $api.profiles
       .postAvatar(image)
-      .then((response) => {
+      .then((response: any) => {
         console.log(response)
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.warn(error)
       })
   }

@@ -53,7 +53,9 @@
     "buttons": {
       "save": "Enregistrer",
       "update": "Mettre à jour"
-    }
+    },
+    "successed": "Enregistrement effectué.",
+    "failed": "Enregistrement impossible."
   },
   "language": {
     "french": "Français",

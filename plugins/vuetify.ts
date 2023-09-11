@@ -1,5 +1,7 @@
 import { createVuetify, ThemeDefinition } from 'vuetify';
+import { VDatePicker } from 'vuetify/labs/VDatePicker'
 import 'vuetify/styles'; // pre-build css styles
+import DayJsAdapter from '@date-io/dayjs'
 
 /* Add all components and directives, for dev & prototyping only. */
 import * as components from 'vuetify/components';
@@ -86,12 +88,15 @@ export default defineNuxtPlugin((nuxtApp) => {
         sharHubDarkTheme
       }
     },
-    components,
+    components: { ...components, VDatePicker },
     directives,
     icons: {
       defaultSet: 'mdi',
       aliases,
       sets: { mdi }
+    },
+    date: {
+      adapter: DayJsAdapter,
     }
   });
 

@@ -57,10 +57,11 @@
               required
             />
             <v-text-field
-              v-model="dateOfBirth"
+              v-model="formatDate"
               :label="$t('profile.date_of_birth')"
               :prepend-icon="mdiCakeVariantOutline"
               :rules="[rules.required]"
+              @update:focused="dialog = true"
             />
           </v-card-text>
         </v-card>
@@ -159,6 +160,18 @@
         </v-card>
       </v-col>
     </v-row>
+    <v-dialog
+      v-model="dialog"
+      width="auto"
+    >
+      <v-date-picker
+        v-model="dateOfBirth"
+        locale="fr"
+        elevation="24"
+        :input-text="$t('profile.date_of_birth')"
+        @click:save="dialog = false"
+      />
+    </v-dialog>
   </v-form>
 </template>
 <script setup>
@@ -175,6 +188,7 @@
   import { useProfilesStore } from '~/store/profilesStore'
   import { useLocationsStore } from '~/store/locationsStore'
 
+  const { $dayjs } = useNuxtApp()
   const emit = defineEmits(['onSubmit', 'onCountrySelect', 'onStateSelect'])
   const { t } = useI18n()
 
@@ -185,7 +199,13 @@
   const states = computed(() => locationsStore.getStates)
   const cities = computed(() => locationsStore.getCities)
   const profile = computed(() => profilesStore.get)
+  const formatDate = computed(() => {
+    return $dayjs(dateOfBirth.value).isValid()
+      ? $dayjs(dateOfBirth.value).format('DD/MM/YYYY')
+      : ''
+  })
 
+  const dialog = ref(false)
   const profileFormValid = ref(false)
   const firstName = ref('')
   const lastName = ref('')
@@ -222,7 +242,7 @@
       lastName.value,
       nickname.value,
       phone.value,
-      dateOfBirth.value,
+      $dayjs(dateOfBirth.value).format('YYYY-MM-DD'),
       city.value
     )
   }

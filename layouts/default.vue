@@ -1,6 +1,9 @@
 <template>
   <v-layout>
     <menu-top />
+    <client-only>
+      <navigation-left />
+    </client-only>
 
     <v-app>
       <v-main
@@ -11,6 +14,7 @@
         <slot />
 
         <NuxtSnackbar />
+        <page-snackbar />
         <button-back-to-top />
       </v-main>
     </v-app>
@@ -20,74 +24,59 @@
 </template>
 
 <script setup lang="ts">
-import { useTheme, useDisplay } from 'vuetify'
-import { useUsersStore } from '~/store/usersStore'
+  import { useTheme, useDisplay } from 'vuetify'
+  import { useUsersStore } from '~/store/usersStore'
 
-const config = useRuntimeConfig()
-const usersStore = useUsersStore()
-const nuxtApp = useNuxtApp()
-const { locale } = useI18n()
-const { mobile } = useDisplay()
+  const config = useRuntimeConfig()
+  const usersStore = useUsersStore()
+  const nuxtApp = useNuxtApp()
+  const theme = useTheme()
+  const { locale } = useI18n()
+  const { mobile } = useDisplay()
 
-useHead({
-  title: config.public.appName,
-  htmlAttrs: {
-    lang: locale.value || 'fr',
-  },
-  link: [
-    {
-      rel: 'icon',
-      type: 'image/png',
-      href: '/favicon.ico',
+  useHead({
+    title: config.public.appName,
+    htmlAttrs: {
+      lang: locale.value || 'fr',
     },
-  ],
-})
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/favicon.ico',
+      },
+    ],
+  })
 
-const theme = useTheme()
-const isDark = usePreferredDark()
-const storeThemeDark = computed(() => usersStore.isDarkTheme)
-const storeThemeDefined = computed(() => usersStore.isThemeDefined)
+  nuxtApp.hook('page:finish', () => {
+    const storeThemeDark = computed(() => usersStore.isDarkTheme)
 
-usersStore.setIsPhone(mobile.value)
+    theme.global.name.value = setUserTheme()
 
-nuxtApp.hook('page:finish', () => {
-  theme.global.name.value = setTheme()
+    usersStore.setIsPhone(mobile.value)
+    usersStore.setDarkTheme(theme.global.name.value === 'sharHubDarkTheme')
 
-  usersStore.setDarkTheme(theme.global.name.value === 'sharHubDarkTheme')
-})
-
-const setTheme = () => {
-  if (storeThemeDefined.value === true) {
-    return storeThemeDark.value === true
-      ? 'sharHubDarkTheme'
-      : 'sharHubLightTheme'
-  } else if (isDark.value === true) {
-    return 'sharHubDarkTheme'
-  } else {
-    return 'sharHubLightTheme'
-  }
-}
-
-watch(storeThemeDark, (value) => {
-  theme.global.name.value =
-    value === false ? 'sharHubLightTheme' : 'sharHubDarkTheme'
-})
+    watch(storeThemeDark, (value) => {
+      theme.global.name.value =
+        value === false ? 'sharHubLightTheme' : 'sharHubDarkTheme'
+    })
+  })
 </script>
 
 <style>
-.page-enter-active,
-.page-leave-active,
-.component-fade-in {
-  transition: all 0.4s;
-}
-.page-enter-from,
-.page-leave-to,
-.component-fade-out {
-  opacity: 0;
-  filter: blur(1rem);
-}
+  .page-enter-active,
+  .page-leave-active,
+  .component-fade-in {
+    transition: all 0.4s;
+  }
+  .page-enter-from,
+  .page-leave-to,
+  .component-fade-out {
+    opacity: 0;
+    filter: blur(1rem);
+  }
 
-.pb-24 {
-  padding-bottom: 96px !important;
-}
+  .pb-24 {
+    padding-bottom: 96px !important;
+  }
 </style>

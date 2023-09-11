@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 
-import ProfilesModule from '~/app/procedures/user/profiles' // Mettez le chemin correct
+import ProfilesModule from '~/app/procedures/user/profiles'
 
 describe('ProfilesModule', () => {
 
