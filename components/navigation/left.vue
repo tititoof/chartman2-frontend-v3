@@ -23,15 +23,11 @@
         :key="index"
         :prepend-icon="item.icon"
         :value="item.name"
+        :link="true"
+        :to="item.to"
+        @click="router.push({ path: item.to })"
       >
-        <v-btn
-          color="info"
-          :nuxt="true"
-          :to="item.to"
-          variant="plain"
-        >
-          {{ $t(item.name) }}
-        </v-btn>
+        {{ $t(item.name) }}
       </v-list-item>
     </v-list>
     <template #append>
@@ -61,6 +57,7 @@
   } from '@mdi/js'
   import { useNavsStore } from '~/store/navsStore'
 
+  const router = useRouter()
   const navsStore = useNavsStore()
   const drawer = ref(false)
   const storeDrawer = computed(() => navsStore.isLeft)
