@@ -47,6 +47,14 @@ class ProfilesModule extends ApiFactory {
       params
     )
   }
+
+  async getAvatar () {
+    return await this.call(
+      this.getAuthHeaders(),
+      'GET',
+      `${this.PROFILES_URL}/show-avatar`
+    )
+  }
 }
 
 export default ProfilesModule

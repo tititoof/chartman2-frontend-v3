@@ -1,5 +1,5 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
-import { User } from '~/types/user'
+import { IUser } from '~/types/user'
 
 export const useUsersStore = defineStore('users', {
   state: () => ({
@@ -28,7 +28,7 @@ export const useUsersStore = defineStore('users', {
     setIsPhone(isPhone: boolean) {
       this.isPhone = isPhone
     },
-    setCurrent(user: User) {
+    setCurrent(user: IUser) {
       this.current = user
     },
     setIsConnected(isConnected: boolean) {

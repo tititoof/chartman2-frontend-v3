@@ -6,7 +6,7 @@
   >
     <v-card
       class="mx-auto"
-      color="info-container"
+      color="primary-container"
       rounded="lg"
     >
       <v-card-text>

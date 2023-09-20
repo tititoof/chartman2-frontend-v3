@@ -113,6 +113,9 @@ export default defineNuxtConfig({
         path: 'hmr/',
         timeout: 3,
       },
+      watch: {
+        usePolling: true
+      }
     },
   },
 })

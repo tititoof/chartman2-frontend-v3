@@ -70,6 +70,21 @@ class ProfilesModule {
     return result
   }
 
+  async getAvatar() {
+    const { $api } = useNuxtApp()
+    const profilesStore = useProfilesStore()
+
+    // @ts-ignore
+    await $api.profiles
+      .getAvatar()
+      .then((response: any) => {
+        profilesStore.setAvatar(response.data)
+      })
+      .catch((error: any) => {
+        console.warn(error)
+      })
+  }
+
   async setAvatar(image: object) {
     const { $api } = useNuxtApp()
     // @ts-ignore

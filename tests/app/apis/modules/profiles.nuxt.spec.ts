@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
-import ProfilesModule from '~/app/apis/modules/profile' // Mettez le chemin correct
+import ProfilesModule from '~/app/apis/modules/profiles' // Mettez le chemin correct
 
 describe('ProfilesModule', () => {
   // Mock des fonctions nécessaires
