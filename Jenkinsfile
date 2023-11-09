@@ -26,7 +26,7 @@ pipeline {
                 echo 'Testing..'
                 script {
                     sh('''
-                        pnpm run test:ci-cd
+                        pnpm run test:dev
                     ''')
                     echo 'Finished tests!'
                 }
