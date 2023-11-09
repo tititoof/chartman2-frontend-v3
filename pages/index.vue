@@ -1,11 +1,12 @@
 <template>
   <v-responsive>
-    <partial-main-presentation />
-    <partial-main-about-me />
-    <partial-main-skills />
-    <partial-main-technologies />
-    <partial-main-articles />
-    <partial-main-contact-me />
+    <lazy-partial-main-presentation />
+
+    <lazy-partial-main-about-me />
+    <lazy-partial-main-skills />
+    <lazy-partial-main-technologies />
+    <lazy-partial-main-articles />
+    <lazy-partial-main-contact-me />
   </v-responsive>
 </template>
 

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Chemin de l'image sur le disque local
+image_path="./public/img/gitea.png"
+
+# Lire le contenu de l'image dans une variable
+image_data=$(cat "$image_path")
+
+# Utilisez base64 pour afficher le contenu du BLOB au format base64
+base64_data=$(echo -n "$image_data" | base64)

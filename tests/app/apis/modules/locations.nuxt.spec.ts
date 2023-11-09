@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { afterEach, describe, it, expect, vi, beforeEach } from 'vitest'
 
 import LocationsModule from '~/app/apis/modules/locations' // Mettez le chemin correct
 

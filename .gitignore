@@ -9,6 +9,7 @@ dist
 .DS_Store
 .fleet
 .idea
-coverage
+.local
+coverage/
 sonar-report.xml
 .pnpm-store

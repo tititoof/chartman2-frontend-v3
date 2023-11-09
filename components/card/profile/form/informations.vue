@@ -1,173 +1,167 @@
 <template>
   <v-form
     v-model="profileFormValid"
-    class="py-6"
+    class="py-2"
     @submit.prevent="handleSubmit"
   >
-    <v-card
-      class="mx-auto"
-      color="primary-container"
-      rounded="lg"
-    >
-      <v-card-text>
-        <v-row>
-          <v-col
-            cols="12"
-            md="6"
-          >
-            <v-card
-              class="mx-auto"
-              color="secondary-container"
-              rounded="lg"
-            >
-              <v-card-text>
-                <v-text-field
-                  v-model="firstName"
-                  :label="$t('profile.first_name')"
-                  :rules="[rules.required]"
-                  :prepend-icon="mdiAccountOutline"
-                  required
-                />
-                <v-text-field
-                  v-model="lastName"
-                  :label="$t('profile.last_name')"
-                  :rules="[rules.required]"
-                  :prepend-icon="mdiAccountTieOutline"
-                  required
-                />
-                <v-text-field
-                  v-model="nickname"
-                  :label="$t('profile.nickname')"
-                  :rules="[rules.required]"
-                  :prepend-icon="mdiCardAccountDetailsOutline"
-                  required
-                />
-              </v-card-text>
-            </v-card>
-          </v-col>
-          <v-col
-            cols="12"
-            md="6"
-          >
-            <v-card
-              class="mx-auto"
-              color="secondary-container"
-              rounded="lg"
-            >
-              <v-card-text>
-                <v-text-field
-                  v-model="phone"
-                  :label="$t('profile.phone')"
-                  :rules="[rules.required]"
-                  :prepend-icon="mdiPhone"
-                  required
-                />
-                <v-text-field
-                  v-model="formatDate"
-                  :label="$t('profile.date_of_birth')"
-                  :prepend-icon="mdiCakeVariantOutline"
-                  :rules="[rules.required]"
-                  @update:focused="dialog = true"
-                />
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="12">
-            <v-card
-              class="mx-auto"
-              color="secondary-container"
-              rounded="lg"
-            >
-              <v-card-text>
-                <v-autocomplete
-                  v-model="country"
-                  :label="$t('profile.country')"
-                  :items="countries"
-                  item-value="id"
-                  item-title="attributes.name"
-                  :rules="[rules.required]"
-                  :prepend-icon="mdiEarth"
-                  @update:model-value="handleSelectCountry"
-                >
-                  <template #item="{ props, item }">
-                    <v-list-item
-                      color="secondary"
-                      base-color="secondary"
-                      variant="tonal"
-                      v-bind="props"
-                      :title="item?.raw?.attributes.name"
-                    >
-                      <template #prepend>
-                        <v-avatar
-                          size="56"
-                          tile
-                          class="px-2"
-                        >
-                          {{ item?.raw?.attributes.emoji }}
-                        </v-avatar>
-                      </template>
-                    </v-list-item>
-                  </template>
-                </v-autocomplete>
-                <v-autocomplete
-                  v-model="state"
-                  :label="$t('profile.state')"
-                  :items="states"
-                  item-value="id"
-                  item-title="attributes.name"
-                  :prepend-icon="mdiMap"
-                  :rules="[rules.required]"
-                  @update:model-value="handleSelecState"
-                >
-                  <template #item="{ props, item }">
-                    <v-list-item
-                      color="secondary"
-                      base-color="secondary"
-                      variant="tonal"
-                      v-bind="props"
-                      :title="item?.raw?.attributes.name"
-                    />
-                  </template>
-                </v-autocomplete>
-                <v-autocomplete
-                  v-model="city"
-                  :label="$t('profile.city')"
-                  :items="cities"
-                  item-value="id"
-                  item-title="attributes.name"
-                  :prepend-icon="mdiCity"
-                  :rules="[rules.required]"
-                >
-                  <template #item="{ props, item }">
-                    <v-list-item
-                      color="secondary"
-                      base-color="secondary"
-                      variant="tonal"
-                      v-bind="props"
-                      :title="item?.raw?.attributes.name"
-                    />
-                  </template>
-                </v-autocomplete>
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-card-text>
-      <v-card-actions>
-        <v-btn
-          :disabled="!profileFormValid"
-          color="info"
-          block
-          variant="outlined"
-          rounded="lg"
-          @click="handleSubmit"
+    <v-card-text>
+      <v-row>
+        <v-col
+          cols="12"
+          md="6"
         >
-          {{ $t('form.buttons.save') }}
-        </v-btn>
-      </v-card-actions>
-    </v-card>
+          <v-card
+            class="mx-auto"
+            color="secondary-container"
+            rounded="lg"
+          >
+            <v-card-text>
+              <v-text-field
+                v-model="firstName"
+                :label="$t('profile.first_name')"
+                :rules="[rules.required]"
+                :prepend-icon="mdiAccountOutline"
+                required
+              />
+              <v-text-field
+                v-model="lastName"
+                :label="$t('profile.last_name')"
+                :rules="[rules.required]"
+                :prepend-icon="mdiAccountTieOutline"
+                required
+              />
+              <v-text-field
+                v-model="nickname"
+                :label="$t('profile.nickname')"
+                :rules="[rules.required]"
+                :prepend-icon="mdiCardAccountDetailsOutline"
+                required
+              />
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col
+          cols="12"
+          md="6"
+        >
+          <v-card
+            class="mx-auto"
+            color="secondary-container"
+            rounded="lg"
+          >
+            <v-card-text>
+              <v-text-field
+                v-model="phone"
+                :label="$t('profile.phone')"
+                :rules="[rules.required]"
+                :prepend-icon="mdiPhone"
+                required
+              />
+              <v-text-field
+                v-model="formatDate"
+                :label="$t('profile.date_of_birth')"
+                :prepend-icon="mdiCakeVariantOutline"
+                :rules="[rules.required]"
+                @update:focused="dialog = true"
+              />
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12">
+          <v-card
+            class="mx-auto"
+            color="secondary-container"
+            rounded="lg"
+          >
+            <v-card-text>
+              <v-autocomplete
+                v-model="country"
+                :label="$t('profile.country')"
+                :items="countries"
+                item-value="id"
+                item-title="attributes.name"
+                :rules="[rules.required]"
+                :prepend-icon="mdiEarth"
+                @update:model-value="handleSelectCountry"
+              >
+                <template #item="{ props, item }">
+                  <v-list-item
+                    color="secondary"
+                    base-color="secondary"
+                    variant="tonal"
+                    v-bind="props"
+                    :title="item?.raw?.attributes.name"
+                  >
+                    <template #prepend>
+                      <v-avatar
+                        size="56"
+                        tile
+                        class="px-2"
+                      >
+                        {{ item?.raw?.attributes.emoji }}
+                      </v-avatar>
+                    </template>
+                  </v-list-item>
+                </template>
+              </v-autocomplete>
+              <v-autocomplete
+                v-model="state"
+                :label="$t('profile.state')"
+                :items="states"
+                item-value="id"
+                item-title="attributes.name"
+                :prepend-icon="mdiMap"
+                :rules="[rules.required]"
+                @update:model-value="handleSelecState"
+              >
+                <template #item="{ props, item }">
+                  <v-list-item
+                    color="secondary"
+                    base-color="secondary"
+                    variant="tonal"
+                    v-bind="props"
+                    :title="item?.raw?.attributes.name"
+                  />
+                </template>
+              </v-autocomplete>
+              <v-autocomplete
+                v-model="city"
+                :label="$t('profile.city')"
+                :items="cities"
+                item-value="id"
+                item-title="attributes.name"
+                :prepend-icon="mdiCity"
+                :rules="[rules.required]"
+              >
+                <template #item="{ props, item }">
+                  <v-list-item
+                    color="secondary"
+                    base-color="secondary"
+                    variant="tonal"
+                    v-bind="props"
+                    :title="item?.raw?.attributes.name"
+                  />
+                </template>
+              </v-autocomplete>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-card-text>
+    <v-card-actions>
+      <v-btn
+        :disabled="!profileFormValid"
+        color="info"
+        block
+        variant="outlined"
+        rounded="lg"
+        @click="handleSubmit"
+      >
+        {{ $t('form.buttons.save') }}
+      </v-btn>
+    </v-card-actions>
     <v-dialog
       v-model="dialog"
       width="auto"
@@ -196,9 +190,11 @@
   import { useProfilesStore } from '~/store/profilesStore'
   import { useLocationsStore } from '~/store/locationsStore'
 
-  const { $dayjs } = useNuxtApp()
+  const { $dayjs, $services } = useNuxtApp()
   const emit = defineEmits(['onSubmit', 'onCountrySelect', 'onStateSelect'])
   const { t } = useI18n()
+
+  await useAsyncData(() => $services.profiles.getCurrentUser())
 
   const profilesStore = useProfilesStore()
   const locationsStore = useLocationsStore()
@@ -255,18 +251,24 @@
     )
   }
 
-  watch(profile, (newVal) => {
-    if (newVal !== null) {
-      firstName.value = newVal.attributes.firstName
-      lastName.value = newVal.attributes.lastName
-      nickname.value = newVal.attributes.nickname
-      phone.value = newVal.attributes.phone
-      dateOfBirth.value = newVal.attributes.dateOfBirth
-      country.value = newVal.attributes.countryId
+  const updateForm = (newProfile) => {
+    if (newProfile !== null) {
+      firstName.value = newProfile.attributes.firstName
+      lastName.value = newProfile.attributes.lastName
+      nickname.value = newProfile.attributes.nickname
+      phone.value = newProfile.attributes.phone
+      dateOfBirth.value = newProfile.attributes.dateOfBirth
+      country.value = newProfile.attributes.countryId
       handleSelectCountry()
-      state.value = newVal.attributes.stateId
+      state.value = newProfile.attributes.stateId
       handleSelecState()
-      city.value = newVal.attributes.cityId
+      city.value = newProfile.attributes.cityId
     }
+  }
+
+  updateForm(profile.value)
+
+  watch(profile, (newProfile) => {
+    updateForm(newProfile)
   })
 </script>

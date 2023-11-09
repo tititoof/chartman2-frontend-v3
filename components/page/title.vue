@@ -23,6 +23,7 @@
     mdiAlphaXCircleOutline,
     mdiGauge,
     mdiAccount,
+    mdiDomain
   } from '@mdi/js'
 
   const props = defineProps({
@@ -48,6 +49,8 @@
         return mdiGauge
       case 'mdiAccount':
         return mdiAccount
+      case 'mdiDomain':
+        return mdiDomain
     }
   })
 </script>

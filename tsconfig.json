@@ -43,16 +43,16 @@
       "@@/*": [
         "/*"
       ],
-      "#app": [
-        "/node_modules/.pnpm/nuxt@3.6.2_@types+node@18.16.19_eslint@8.44.0_sass@1.63.6_typescript@4.9.5/node_modules/nuxt/dist/app"
-      ],
-      "#app/*": [
-        "/node_modules/.pnpm/nuxt@3.6.2_@types+node@18.16.19_eslint@8.44.0_sass@1.63.6_typescript@4.9.5/node_modules/nuxt/dist/app/*"
-      ],
+      // "#app": [
+      //   "/node_modules/.pnpm/nuxt@3.6.2_@types+node@18.16.19_eslint@8.44.0_sass@1.63.6_typescript@4.9.5/node_modules/nuxt/dist/app"
+      // ],
+      // "#app/*": [
+      //   "/node_modules/.pnpm/nuxt@3.6.2_@types+node@18.16.19_eslint@8.44.0_sass@1.63.6_typescript@4.9.5/node_modules/nuxt/dist/app/*"
+      // ],
     }
   },
   "include": [
     ".nuxt/nuxt.d.ts",
     "./**/*"
-  ]
+, "plugins/vuetify.ts"  ]
 }

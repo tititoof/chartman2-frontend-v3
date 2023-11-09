@@ -3,19 +3,24 @@ import { IProfile } from '~/types/users/profile'
 
 export const useProfilesStore = defineStore('profiles', {
   state: () => ({
-    current_user: null as IProfile | null,
-    user_avatar: null as Object | null
+    profile: null as IProfile | null,
+    avatar: null as Object | null,
+    timestamp: null as Date | null,
   }),
   getters: {
-    get: (state) => state.current_user,
-    getAvatar: (state) => state.user_avatar
+    get: (state) => state.profile,
+    getAvatar: (state) => (state.avatar instanceof Blob) ? state.avatar : null,
+    getTimestamp: (state) => state.timestamp
   },
   actions: {
     set(profile: IProfile) {
-      this.current_user = profile
+      this.profile = profile
     },
     setAvatar(avatar: object) {
-      this.user_avatar = avatar
+      this.avatar = avatar
+    },
+    setTimestamp(timestamp: Date | null) {
+      this.timestamp = timestamp
     }
   },
   persist: {

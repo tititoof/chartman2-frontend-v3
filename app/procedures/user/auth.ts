@@ -12,9 +12,7 @@ class AuthModule {
     }
 
     // @ts-ignore
-    const userResult = await $services.user.current()
-
-    return userResult
+    return await $services.user.current()
   }
 }
 

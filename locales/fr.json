@@ -82,5 +82,61 @@
     "state": "Région",
     "city": "Ville",
     "avatar": "Avatar"
+  },
+  "organization": {
+    "no_data": "Aucune organisation.",
+    "new": "Nouvelle organisation",
+    "name": "Nom",
+    "activity_description": "Description de l'activité",
+    "activity_sector": "Secteur d'activité",
+    "address": "Adresse",
+    "annual_turnover": "Chiffre d'affaires annuel",
+    "borned_at": "Date de création",
+    "email_address": "Adresse mail",
+    "kind": "Genre",
+    "legal_status": "Statut légale",
+    "number_of_employees": "Nombre d'employés",
+    "phone_number": "N° de téléphone",
+    "registration_number": "N° d'immatriculation",
+    "website": "Site web",
+    "activity_sectors": {
+      "agriculture_forestry": "Agriculture et foresterie",
+      "energy_utilities": "Energie",
+      "finance_insurance": "Finances et assurances",
+      "government_public_sector": "Gouvernement et secteur public",
+      "healthcare_pharmaceuticals": "Soins de santé et produits pharmaceutiques",
+      "it_telecommunications": "Technologies de l'information et télécommunications",
+      "manufacturing_engineering": "Fabrication et ingénierie",
+      "media_entertainment": "Médias et divertissement",
+      "nonprofit_charity": "Organisations à but non lucratif et œuvres caritatives",
+      "real_estate_construction": "Immobilier et construction",
+      "retail_consumer_goods": "Vente au détail et biens de consommation",
+      "transportation_logistics": "Transport et logistique",
+      "travel_hospitality": "Voyages et accueil",
+      "other_activity": "Autre activié"
+    },
+    "kinds": {
+      "sole_trader": "Entreprise individuelle",
+      "single_member_llc": "Entreprise unipersonnelle à responsabilité limitée (EURL)",
+      "llc": "Société à responsabilité limitée (SARL)",
+      "sa": "Société anonyme (SA)",
+      "general_partnership": "Société en nom collectif (SNC)",
+      "limited_partnership": "Société en commandite simple (SCS)",
+      "partnership_limited_by_shares": "Société en commandite par actions (SCA)",
+      "association": "Association",
+      "cooperative": "Coopérative",
+      "non_profit_organization": "Organisme sans but lucratif (OSBL)",
+      "public_administration": "Administration publique",
+      "other_kind": "Autre"
+    },
+    "legal_status_options": {
+      "entreprise": "Entreprise",
+      "association_status": "Association",
+      "cooperative_status": "Coopération",
+      "ngo": "NGO",
+      "union": "Union",
+      "foundation": "fondation",
+      "other_status": "Autre"
+    }
   }
 }

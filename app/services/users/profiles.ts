@@ -78,7 +78,7 @@ class ProfilesModule {
     await $api.profiles
       .getAvatar()
       .then((response: any) => {
-        profilesStore.setAvatar(response.data)
+        profilesStore.setAvatar(response)
       })
       .catch((error: any) => {
         console.warn(error)
@@ -86,16 +86,26 @@ class ProfilesModule {
   }
 
   async setAvatar(image: object) {
-    const { $api } = useNuxtApp()
+    const { $api, $services } = useNuxtApp()
+
+    let result = false
     // @ts-ignore
     await $api.profiles
       .postAvatar(image)
       .then((response: any) => {
-        console.log(response)
+        result = true
       })
       .catch((error: any) => {
-        console.warn(error)
+        result = false
       })
+
+    if (result) {
+      // @ts-ignore
+      $services.notifications.success('form.successed')
+    } else {
+      // @ts-ignore
+      $services.notifications.error('form.failed')
+    }
   }
 }
 

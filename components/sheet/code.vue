@@ -8,9 +8,12 @@
     width="100%"
   >
     <client-only>
+      <!DOCTYPE html>
       <html
         :class="storeThemeDark === false ? 'light' : 'dark'"
         style="overflow-y: initial"
+        lang="fr"
+        xml:lang="fr"
       >
         <ContentDoc
           :path="props.path"

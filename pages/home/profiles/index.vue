@@ -1,17 +1,34 @@
 <template>
   <v-row class="d-flex align-self-start py-12">
     <v-container class="py-12">
-      <page-title
-        :title="$t('home.profile')"
-        icon="mdiAccount"
-        subtitle=""
-      />
-      <card-profile-form-informations
-        @on-country-select="onCountrySelect"
-        @on-state-select="onStateSelect"
-        @on-submit="onSubmit"
-      />
-      <card-profile-form-avatar />
+      <client-only>
+        <page-title
+          :title="$t('home.profile')"
+          icon="mdiAccount"
+          subtitle=""
+        />
+        <v-card
+          class="mx-auto mt-6 mb-4"
+          color="info-container"
+          rounded="lg"
+        >
+          <lazy-card-profile-form-informations
+            @on-country-select="onCountrySelect"
+            @on-state-select="onStateSelect"
+            @on-submit="onSubmitProfil"
+          />
+        </v-card>
+
+        <v-card
+          class="mx-auto"
+          color="info-container"
+          rounded="lg"
+        >
+          <lazy-card-profile-form-avatar
+            @on-submit="onSubmitAvatar"
+          />
+        </v-card>
+      </client-only>
     </v-container>
   </v-row>
 </template>
@@ -21,9 +38,7 @@
     middleware: ['auth']
   })
 
-  const { $procedures, $services } = useNuxtApp()
-
-  $procedures.profiles.getCurrentUser()
+  const { $services } = useNuxtApp()
 
   const onCountrySelect = (countryId) => {
     $services.locations.getStates(countryId)
@@ -33,7 +48,7 @@
     $services.locations.getCities(stateId)
   }
 
-  const onSubmit = async (
+  const onSubmitProfil = async (
     firstName,
     lastName,
     nickname,
@@ -49,5 +64,11 @@
       dateOfBirth,
       city
     )
+  }
+
+  const onSubmitAvatar = async (avatar) => {
+    await $services.profiles.setAvatar(avatar)
+
+    await $services.profiles.getAvatar(avatar)
   }
 </script>

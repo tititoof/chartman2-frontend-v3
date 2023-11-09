@@ -1,8 +1,13 @@
+import { useProfilesStore } from '~/store/profilesStore'
+
 class ProfilesModule {
   static moduleName = "profiles"
 
   async getCurrentUser () {
     const { $services } = useNuxtApp()
+    const profilesStore = useProfilesStore()
+
+    profilesStore.setTimestamp(null)
 
     // @ts-ignore
     await $services.profiles.getCurrentUser()
@@ -12,6 +17,8 @@ class ProfilesModule {
 
     // @ts-ignore
     await $services.profiles.getAvatar()
+
+    profilesStore.setTimestamp(new Date())
   }
 }
 

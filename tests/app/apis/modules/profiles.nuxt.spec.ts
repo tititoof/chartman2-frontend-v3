@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { afterEach, describe, it, expect, vi, beforeEach } from 'vitest'
 
 import ProfilesModule from '~/app/apis/modules/profiles' // Mettez le chemin correct
 

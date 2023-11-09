@@ -11,7 +11,7 @@
         class="d-flex align-center fill-height pb-24"
         background-color="background"
       >
-        <slot />
+        <slot /> 
 
         <NuxtSnackbar />
         <page-snackbar />
@@ -48,18 +48,19 @@
     ],
   })
 
+  const storeThemeDark = computed(() => usersStore.isDarkTheme)
+
   nuxtApp.hook('page:finish', () => {
-    const storeThemeDark = computed(() => usersStore.isDarkTheme)
 
     theme.global.name.value = setUserTheme()
 
     usersStore.setIsPhone(mobile.value)
     usersStore.setDarkTheme(theme.global.name.value === 'sharHubDarkTheme')
+  })
 
-    watch(storeThemeDark, (value) => {
-      theme.global.name.value =
-        value === false ? 'sharHubLightTheme' : 'sharHubDarkTheme'
-    })
+  watch(storeThemeDark, (value) => {
+    theme.global.name.value =
+      value === false ? 'sharHubLightTheme' : 'sharHubDarkTheme'
   })
 </script>
 

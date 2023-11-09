@@ -1,49 +1,62 @@
 <template>
-  <v-navigation-drawer
-    v-model="drawer"
-    color="primary-container"
-    temporary
-  >
-    <v-list>
-      <v-list-item
-        prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
-        title="Sandra Adams"
-        subtitle="sandra_a88@gmailcom"
-      />
-    </v-list>
-
-    <v-divider />
-
-    <v-list
-      density="compact"
-      nav
+  <client-only>
+    <v-navigation-drawer
+      v-model="drawer"
+      color="primary-container"
+      temporary
     >
-      <v-list-item
-        v-for="(item, index) in menu"
-        :key="index"
-        :prepend-icon="item.icon"
-        :value="item.name"
-        :link="true"
-        :to="item.to"
-        @click="router.push({ path: item.to })"
-      >
-        {{ $t(item.name) }}
-      </v-list-item>
-    </v-list>
-    <template #append>
+      <v-list>
+        <v-list-item
+          :title="title"
+          :subtitle="subtitle"
+        >
+          <template #prepend>
+            <v-avatar
+              v-if="storeAvatar !== null"
+              :image="avatarImg"
+            />
+            <v-avatar
+              v-else
+              image="/img/gitea.png"
+            />
+          </template>
+        </v-list-item>
+      </v-list>
+
+      <v-divider />
+
       <v-list
         density="compact"
         nav
       >
         <v-list-item
-          :prepend-icon="mdiLogoutVariant"
-          :title="$t('auth.log_out')"
-          value="myfiles"
-        />
+          v-for="(item, index) in menu"
+          :key="index"
+          :prepend-icon="item.icon"
+          :value="item.name"
+          :link="true"
+          :to="item.to"
+          @click="goTo(item.to)"
+        >
+          {{ $t(item.name) }}
+        </v-list-item>
       </v-list>
-    </template>
-  </v-navigation-drawer>
+      <template #append>
+        <v-list
+          density="compact"
+          nav
+        >
+          <v-list-item
+            :prepend-icon="mdiLogoutVariant"
+            :title="$t('auth.log_out')"
+            value="logOut"
+          />
+        </v-list>
+      </template>
+    </v-navigation-drawer>
+  </client-only>
 </template>
+
 <script setup>
   import {
     mdiLogoutVariant,
@@ -56,12 +69,24 @@
     mdiAccount,
   } from '@mdi/js'
   import { useNavsStore } from '~/store/navsStore'
+  import { useProfilesStore } from '~/store/profilesStore'
 
+  const { $services } = useNuxtApp()
   const router = useRouter()
   const navsStore = useNavsStore()
+  const profilesStore = useProfilesStore()
+
+  await useAsyncData(() => $services.profiles.getAvatar())
+
   const drawer = ref(false)
   const storeDrawer = computed(() => navsStore.isLeft)
-  const menu = reactive([
+  const profile = computed(() => profilesStore.get)
+  const storeAvatar = computed(() => profilesStore.getAvatar)
+  const avatarImg = (storeAvatar !== null) ? useObjectUrl(storeAvatar) : null
+
+  const title = (profile.value !== null) ? `${profile.value.attributes.firstName} ${profile.value.attributes.lastName}` : ''
+  const subtitle = (profile.value !== null) ? profile.value.attributes.nickname : ''
+  const menu = ref([
     {
       name: 'home.dashboard',
       icon: mdiViewDashboard,
@@ -70,7 +95,7 @@
     {
       name: 'home.organizations',
       icon: mdiDomain,
-      to: '/home',
+      to: '/home/organizations',
     },
     {
       name: 'home.projects',
@@ -100,10 +125,18 @@
   ])
 
   watch(storeDrawer, (newVal) => {
-    drawer.value = newVal
+    if (drawer.value !== newVal) {
+      drawer.value = newVal
+    }
   })
 
-  watch(drawer, (newVal) => {
-    navsStore.setLeft(newVal)
+  watch(drawer, (newDrawerValue) => {
+    navsStore.setLeft(newDrawerValue)
   })
+
+  const goTo = (page) => {
+    navsStore.setLeft(false)
+
+    router.push({ path: page })
+  }
 </script>

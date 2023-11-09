@@ -5,10 +5,6 @@ import ProfilesModule from '~/app/procedures/user/profiles'
 describe('ProfilesModule', () => {
   let profilesModule: ProfilesModule
 
-  beforeEach(() => {
-    profilesModule = new ProfilesModule()
-  })
-
   vi.stubGlobal("useNuxtApp", () => ({
     $services: {
       profiles: {
@@ -20,6 +16,10 @@ describe('ProfilesModule', () => {
       },
     },
   }))
+
+  beforeEach(() => {
+    profilesModule = new ProfilesModule()
+  })
 
   it('getCurrentUser should call services correctly', async () => {
     const mockGetCurrentUser = vi.fn()
@@ -33,7 +33,6 @@ describe('ProfilesModule', () => {
     // @ts-ignore
     useNuxtApp().$services.profiles.getAvatar = mockGetAvatar
 
-    // const profilesModule = new ProfilesModule()
     await profilesModule.getCurrentUser()
 
     // Vérifiez que les méthodes des services ont été appelées

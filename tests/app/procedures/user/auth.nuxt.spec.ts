@@ -1,33 +1,44 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
+// @ts-ignore
+import * as nuxt from '#app'
 
 import AuthModule from '~/app/procedures/user/auth'
 
 describe('AuthModule', () => {
   let authModule: AuthModule
 
-  vi.stubGlobal("useNuxtApp", () => ({
-    $services: {
-      auth: {
-        signIn: vi.fn(),
-      },
-      user: {
-        current: vi.fn(),
-      },
-    },
-  }))
-
-  // Mock de current
-  const mockCurrent = vi.fn().mockResolvedValue({
-    // Mockez ici les données utilisateur
-  })
-
   beforeEach(() => {
     authModule = new AuthModule()
   })
 
   it('signIn should return user data on successful login', async () => {
+    // @ts-ignore
+    vi.spyOn(nuxt, 'useNuxtApp').mockImplementation(() =>({
+      $services: {
+        auth: {
+          signIn: vi.fn(),
+        },
+        user: {
+          current: vi.fn(),
+        },
+      },
+    }))
+
     // Mock de signIn
     const mockSignIn = vi.fn().mockResolvedValue(true)
+    // Mock de current
+    const mockCurrent = vi.fn().mockResolvedValue({
+      data: {
+        id: '1',
+        type: 'user',
+        attributes: {
+          id: '1',
+          email: 'toto@toto.fr',
+          createdAt: '2023-01-01',
+          isAdmin: false,
+        },
+      },
+    })
 
     // Injectez les mocks dans useNuxtApp
     // @ts-ignore
@@ -44,7 +55,16 @@ describe('AuthModule', () => {
     expect(mockSignIn).toHaveBeenCalledWith(email, password)
     expect(mockCurrent).toHaveBeenCalled()
     expect(result).toEqual({
-      // Vérifiez les données utilisateur renvoyées
+      data: {
+        id: '1',
+        type: 'user',
+        attributes: {
+          id: '1',
+          email: 'toto@toto.fr',
+          createdAt: '2023-01-01',
+          isAdmin: false,
+        },
+      },
     })
   })
 

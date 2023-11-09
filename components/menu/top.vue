@@ -18,7 +18,7 @@
         <v-icon
           v-if="isConnected"
           :icon="mdiMenu"
-          @click="toggleLeftMenu"
+          @click.stop="toggleLeftMenu"
         />
       </client-only>
       {{ $t('global.name') }}
@@ -75,6 +75,8 @@ import { useNavsStore } from '~/store/navsStore'
 const router = useRouter()
 const usersStore = useUsersStore()
 const navsStore = useNavsStore()
+
+const leftNav = computed(() => navsStore.isLeft)
 const src = ref('/img/android-chrome-192x192.png')
 const menuItems = reactive([
   {
@@ -100,6 +102,6 @@ const backToHomePage = () => {
 }
 
 const toggleLeftMenu = () => {
-  navsStore.setLeft(! navsStore.isLeft)
+  navsStore.setLeft(! leftNav.value)
 }
 </script>

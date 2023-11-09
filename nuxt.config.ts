@@ -44,6 +44,7 @@ export default defineNuxtConfig({
     },
   },
   modules: [
+    // 'vuetify-nuxt-module',
     '@vueuse/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/i18n',
@@ -86,8 +87,8 @@ export default defineNuxtConfig({
     highlight: {
       // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
       theme: {
-        dark: 'github-light',
-        default: 'github-dark',
+        dark: 'github-dark',
+        default: 'github-light',
       },
     },
     markdown: {
@@ -102,16 +103,17 @@ export default defineNuxtConfig({
     duration: 5000,
   },
   build: {
-    transpile: ['vuetify', '@vuepic/vue-datepicker'],
+    transpile: ['vuetify'],
   },
   vite: {
     server: {
       hmr: {
+        host: "sharehub-frontend-wss.traefik.me",
         protocol: 'wss',
         clientPort: 443,
         port: 24678,
-        path: 'hmr/',
-        timeout: 3,
+        path: '/hmr/',
+        // timeout: 3,
       },
       watch: {
         usePolling: true

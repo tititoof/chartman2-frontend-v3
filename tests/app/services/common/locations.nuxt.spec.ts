@@ -1,18 +1,10 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { afterEach, describe, it, expect, vi, beforeEach } from 'vitest'
 
 import LocationsModule from '~/app/services/common/locations'
 
 describe('LocationsModule', () => {
   let locationsModule: LocationsModule
 
-  // // Mock de useLocationsStore
-  // vi.stubGlobal('locationsStore', () => ({
-  //   useLocationsStore: vi.fn(() => ({
-  //     setCities: vi.fn(),
-  //     setCountries: vi.fn(),
-  //     setStates: vi.fn(),
-  //   })),
-  // }))
   // @ts-ignore
   vi.stubGlobal("useNuxtApp", () => ({
     $api: {
