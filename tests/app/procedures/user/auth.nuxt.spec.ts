@@ -7,6 +7,18 @@ import AuthModule from '~/app/procedures/user/auth'
 describe('AuthModule', () => {
   let authModule: AuthModule
 
+  vi.stubGlobal("useNuxtApp", () => ({
+    $services: {
+      profiles: {
+        getCurrentUser: vi.fn(),
+        getAvatar: vi.fn(),
+      },
+      locations: {
+        getCountries: vi.fn(),
+      },
+    },
+  }))
+
   beforeEach(() => {
     authModule = new AuthModule()
   })
