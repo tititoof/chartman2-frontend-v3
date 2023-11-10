@@ -4,7 +4,7 @@ import { mountSuspended } from 'vitest-environment-nuxt/utils'
 import { vuetifyStubs } from '~/tests/stubs/vuetify'
 import { mockNuxtImport } from 'nuxt-vitest/utils'
 
-import TestResource from '~~/components/card/profile/form/avatar.vue'
+import TestResource from '~~/components/card/organization/form/new.vue'
 
 mockNuxtImport('useAsyncData', () => {
   return vi.fn()
@@ -23,8 +23,8 @@ describe('Components - card/profile/form/avatar', () => {
         getCurrentUser: vi.fn(),
         getAvatar: vi.fn(),
       },
-      locations: {
-        getCountries: vi.fn(),
+      organizations: {
+        getList: vi.fn(),
       },
     },
     $api: {
