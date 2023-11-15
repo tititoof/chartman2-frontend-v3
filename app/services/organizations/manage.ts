@@ -23,6 +23,25 @@ class OrganizationModule {
 
     return result
   }
+
+  async create(params: any) {
+    const { $api } = useNuxtApp()
+
+    let result = false
+
+    // @ts-ignore
+    await $api.organizations
+      .create(params)
+      .then(() => {
+
+        result = true
+      })
+      .catch(() => {
+        result = false
+      })
+
+    return result
+  }
 }
 
 export default OrganizationModule

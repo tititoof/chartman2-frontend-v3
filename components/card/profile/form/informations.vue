@@ -194,6 +194,7 @@
   const emit = defineEmits(['onSubmit', 'onCountrySelect', 'onStateSelect'])
   const { t } = useI18n()
 
+  await useAsyncData(() => $services.locations.getCountries())
   await useAsyncData(() => $services.profiles.getCurrentUser())
 
   const profilesStore = useProfilesStore()

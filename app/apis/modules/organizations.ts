@@ -13,6 +13,15 @@ class OrganizationsModule extends ApiFactory {
       this.ORGANIZATIONS_URL
     )
   }
+
+  async create (params: any): Promise<IOrganization> {
+    return await this.call<IOrganization>(
+      this.getAuthHeaders(),
+      'POST',
+      this.ORGANIZATIONS_URL,
+      params
+    )
+  }
 }
 
 export default OrganizationsModule

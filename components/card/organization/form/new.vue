@@ -268,6 +268,8 @@
   const { t } = useI18n()
   const locationsStore = useLocationsStore()
 
+  await useAsyncData(() => $services.locations.getCountries())
+
   const name = ref('')
   const organizationFormValid = ref(false)
   const activityDescription = ref('')
@@ -344,5 +346,29 @@
 
   const handleSelecState = () => {
     $services.locations.getCities(state.value)
+  }
+
+  const handleSubmit = async () => {
+    console.log('test')
+    await $services.organizations.create({
+      organization: {
+        activity_description: activityDescription.value,
+        activity_sector: activitySector.value,
+        address: address.value,
+        borned_at: bornedAt.value,
+        annual_turnover: annualTurnover.value,
+        email_address: emailAddress.value,
+        kind: kind.value,
+        legal_status: legalStatus.value,
+        name: name.value,
+        number_of_employees: numberOfEmployees.value,
+        phone_number: phoneNumber.value,
+        region: state.value,
+        registration_number: registrationNumber.value,
+        website: website.value,
+        city_id: city.value,
+        country_id: country.value
+      }
+    })
   }
 </script>

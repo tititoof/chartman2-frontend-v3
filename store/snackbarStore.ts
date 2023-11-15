@@ -4,8 +4,8 @@ import { IStatus } from '~/types/snackbar/type'
 export const useSnackbarStore = defineStore('snackbar', {
   state: () => ({
     category: '' as IStatus,
-    message: '' as String,
-    show: false as Boolean
+    message: '' as string,
+    show: false as boolean
   }),
   getters: {
     getCategory: (state) => state.category,
@@ -16,10 +16,10 @@ export const useSnackbarStore = defineStore('snackbar', {
     setCategory(category: IStatus) {
       this.category = category
     },
-    setMessage(message: String) {
+    setMessage(message: string) {
       this.message = message
     },
-    setShow(show: Boolean) {
+    setShow(show: boolean) {
       this.show = show
     }
   },
