@@ -57,6 +57,12 @@
     "successed": "Enregistrement effectué.",
     "failed": "Enregistrement impossible."
   },
+  "common": {
+    "buttons": {
+      "show": "Voir",
+      "edit": "Editer"
+    }
+  },
   "language": {
     "french": "Français",
     "english": "Anglais"

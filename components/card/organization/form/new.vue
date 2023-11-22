@@ -190,11 +190,12 @@
                         required
                       />
                       <v-text-field
-                        v-model="bornedAt"
+                        v-model="formatDate"
                         :label="$t('organization.borned_at')"
                         :rules="[rules.required]"
                         :prepend-icon="mdiCreation"
                         required
+                        @update:focused="dialog = true"
                       />
                       <v-text-field
                         v-model="annualTurnover"
@@ -242,6 +243,18 @@
         </v-expansion-panels>
       </v-card-text>
     </v-form>
+    <v-dialog
+      v-model="dialog"
+      width="auto"
+    >
+      <v-date-picker
+        v-model="bornedAt"
+        locale="fr"
+        elevation="24"
+        :input-text="$t('organization.borned_at')"
+        @click:save="dialog = false"
+      />
+    </v-dialog>
   </v-card>
 </template>
 
@@ -263,13 +276,14 @@
     mdiMap, } from '@mdi/js'
   import { useLocationsStore } from '~/store/locationsStore'
 
-  const { $services } = useNuxtApp()
+  const { $dayjs, $services } = useNuxtApp()
 
   const { t } = useI18n()
   const locationsStore = useLocationsStore()
 
   await useAsyncData(() => $services.locations.getCountries())
 
+  const dialog = ref(false)
   const name = ref('')
   const organizationFormValid = ref(false)
   const activityDescription = ref('')
@@ -339,6 +353,12 @@
     { value: "foundation", name: t('organization.legal_status_options.foundation') },
     { value: "other_status", name: t('organization.legal_status_options.other_status') }
   ])
+
+  const formatDate = computed(() => {
+    return $dayjs(bornedAt.value).isValid()
+      ? $dayjs(bornedAt.value).format('DD/MM/YYYY')
+      : ''
+  })
 
   const handleSelectCountry = () => {
     $services.locations.getStates(country.value)
