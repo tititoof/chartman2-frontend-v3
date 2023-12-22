@@ -1,11 +1,7 @@
 import { defineVitestConfig } from '@nuxt/test-utils/config'
-import vue from '@vitejs/plugin-vue'
-import vuetify from 'vite-plugin-vuetify'
 
 export default defineVitestConfig({
   plugins: [
-    vue(),
-    // vuetify(),
   ],
   test: {
     environment: 'nuxt',
