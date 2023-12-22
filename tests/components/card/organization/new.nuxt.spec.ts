@@ -1,16 +1,15 @@
 // @vitest-environment nuxt
 import { describe, it, expect, vi } from 'vitest'
-import { mountSuspended } from 'vitest-environment-nuxt/utils'
+import { mountSuspended, mockNuxtImport } from '@nuxt/test-utils/runtime'
 import { vuetifyStubs } from '~/tests/stubs/vuetify'
-import { mockNuxtImport } from 'nuxt-vitest/utils'
 
-import TestResource from '~~/components/card/organization/form/new.vue'
+import TestResource from '~~/components/card/organization/new.vue'
 
 mockNuxtImport('useAsyncData', () => {
   return vi.fn()
 })
 
-describe('Components - card/profile/form/avatar', () => {
+describe('Components - card/profile/form/avatar', async () => {
   vi.stubGlobal("useNuxtApp", () => ({
     $services: {
       auth: {

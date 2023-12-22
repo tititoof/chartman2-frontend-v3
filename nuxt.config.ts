@@ -50,9 +50,12 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@pinia-plugin-persistedstate/nuxt',
     '@nuxt/content',
-    'nuxt-vitest',
+    '@nuxt/test-utils/module',
     'nuxt-snackbar',
   ],
+  // plugins: [
+  //   { src: '~/node_modules/nuxtjs-phaser', mode: 'client' }
+  // ],
   i18n: {
     langDir: 'locales',
     lazy: true,
@@ -120,4 +123,5 @@ export default defineNuxtConfig({
       }
     },
   },
+  testUtils: {}
 })

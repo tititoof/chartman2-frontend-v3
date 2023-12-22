@@ -1,12 +1,12 @@
 // @vitest-environment nuxt
 import { describe, it, expect, vi } from 'vitest'
-import { mountSuspended } from 'vitest-environment-nuxt/utils'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { vuetifyStubs } from '../../stubs/vuetify'
 
 import TestResource from '~~/components/button/back_to_top.vue'
 import { mount } from '@vue/test-utils'
 
-describe('Components - button/back_to_top', () => {
+describe('Components - button/back_to_top', async () => {
   it('is a Vue instance', async () => {
 
     const wrapper = await mountSuspended(TestResource, {

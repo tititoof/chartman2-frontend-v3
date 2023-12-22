@@ -14,11 +14,28 @@ class OrganizationsModule extends ApiFactory {
     )
   }
 
+  async get (id: string): Promise<IOrganization> {
+    return await this.call<IOrganization>(
+      this.getAuthHeaders(),
+      'GET',
+      `${this.ORGANIZATIONS_URL}/${id}`,
+    )
+  }
+
   async create (params: any): Promise<IOrganization> {
     return await this.call<IOrganization>(
       this.getAuthHeaders(),
       'POST',
       this.ORGANIZATIONS_URL,
+      params
+    )
+  }
+
+  async update (id: string, params: any): Promise<IOrganization> {
+    return await this.call<IOrganization>(
+      this.getAuthHeaders(),
+      'PUT',
+      `${this.ORGANIZATIONS_URL}/${id}`,
       params
     )
   }

@@ -1,11 +1,11 @@
 FROM node:18-alpine
 
-RUN npm install -g pnpm
+RUN npm install -g pnpm@8.10.5
 
 WORKDIR /app
 
-RUN apk update && apk upgrade
-RUN apk add git
+RUN apk --no-cache add git \
+    && rm -rf /var/cache/apk/*
 
 # COPY ./package*.json /app/
 
@@ -15,15 +15,16 @@ RUN chown -Rf node:node /app
 
 USER node
 
-RUN pnpm config set store-dir /home/node/.local/share/pnpm/store/v3 --global
-
-RUN pnpm install
+RUN pnpm config set store-dir /home/node/.local/share/pnpm/store/v3 --global \
+    && pnpm install
 
 USER root
 
 RUN chown -Rf node:node /app
 
 ENV PATH ./node_modules/.bin/:$PATH
+
+USER node
 
 ENTRYPOINT ["/bin/sh"]
 

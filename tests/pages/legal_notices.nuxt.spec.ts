@@ -1,6 +1,6 @@
 // @vitest-environment nuxt
 import { describe, it, expect } from 'vitest'
-import { mountSuspended } from 'vitest-environment-nuxt/utils'
+import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { vuetifyStubs } from '../stubs/vuetify'
 
 import TestResource from '~~/pages/legal_notices.vue'

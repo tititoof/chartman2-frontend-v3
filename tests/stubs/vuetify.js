@@ -29,5 +29,15 @@ export const vuetifyStubs = {
   'v-btn-group': true,
   'v-footer': true,
   'v-navigation-drawer': true,
-  'v-date-picker': true
+  'v-date-picker': true,
+  'v-alert': true,
+  'v-dialog': true,
+  'v-file-input': true,
+  'v-progress-circular': true,
+  'v-overlay': true,
+  'v-expansion-panels': true,
+  'v-expansion-panel': true,
+  'v-expansion-panel-text': true,
+  'v-expansion-panel-title': true,
+  'v-autocomplete': true
 }

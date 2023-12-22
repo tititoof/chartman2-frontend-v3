@@ -1,13 +1,17 @@
-import { defineVitestConfig } from 'nuxt-vitest/config'
+import { defineVitestConfig } from '@nuxt/test-utils/config'
+import vue from '@vitejs/plugin-vue'
 import vuetify from 'vite-plugin-vuetify'
 
 export default defineVitestConfig({
   plugins: [
-    vuetify(),
+    vue(),
+    // vuetify(),
   ],
   test: {
     environment: 'nuxt',
-    deps: { inline: ['vuetify'] },
+    server: {
+      deps: { inline: ['vuetify'] },
+    },
     globals: true,
     include: ['tests/**/*.nuxt.spec.ts'],
     exclude: ['api', '.nuxt', 'server', 'middleware', 'layouts', 'pages', 'tests', '*.config.ts', '*.d.ts', 'app.vue'],

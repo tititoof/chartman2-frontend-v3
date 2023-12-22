@@ -37,6 +37,7 @@
               variant="outlined"
               :prepend-icon="mdiPencil"
               rounded="lg"
+              @click="handleEdit(organization.id)"
             >
               {{ $t('common.buttons.edit') }}
             </v-btn>
@@ -44,11 +45,20 @@
         </v-list-item>
       </v-list>
     </v-card-text>
+    <v-dialog
+      v-model="editDialog"
+      fullscreen
+    >
+      <lazy-card-organization-edit
+        :id="editId"
+        @on-close="editDialog = false"
+      />
+    </v-dialog>
   </v-card>
 </template>
 
 <script setup>
-  import { mdiEyeOutline, mdiPencil } from '@mdi/js';
+  import { mdiEyeOutline, mdiPencil } from '@mdi/js'
   import { useOrganizationsStore } from '~/store/organizationsStore'
 
   const organizationsStore = useOrganizationsStore()
@@ -57,4 +67,11 @@
   await useAsyncData(() => $services.organizations.getList())
 
   const listOrganizations = computed(() => organizationsStore.getList)
+  const editDialog = ref(false)
+  const editId = ref('')
+
+  const handleEdit = (id) => {
+    editId.value = id
+    editDialog.value = true
+  }
 </script>

@@ -68,7 +68,7 @@
   </section>
 </template>
 <script setup>
-import { mdiLanguageRubyOnRails, mdiNuxt } from "@mdi/js";
+import { mdiLanguageRubyOnRails, mdiNuxt } from "@mdi/js"
 
 const articles = [
   {
@@ -87,5 +87,5 @@ const articles = [
     text: "Petite introduction sur le framework Nuxt.",
     link: "/blog/nuxt_3_introduction",
   },
-];
+]
 </script>

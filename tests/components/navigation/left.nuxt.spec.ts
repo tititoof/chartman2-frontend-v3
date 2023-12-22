@@ -1,8 +1,7 @@
 // @vitest-environment nuxt
 import { describe, it, expect, vi } from 'vitest'
-import { mountSuspended } from 'vitest-environment-nuxt/utils'
+import { mountSuspended, mockNuxtImport } from '@nuxt/test-utils/runtime'
 import { vuetifyStubs } from '../../stubs/vuetify'
-import { mockNuxtImport } from 'nuxt-vitest/utils'
 
 import TestResource from '~~/components/navigation/left.vue'
 
@@ -10,7 +9,7 @@ mockNuxtImport('useAsyncData', () => {
   return vi.fn()
 })
 
-describe('Components - navigation/left', () => {
+describe('Components - navigation/left', async () => {
   vi.stubGlobal("useNuxtApp", () => ({
     $services: {
       auth: {

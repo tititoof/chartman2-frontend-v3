@@ -8,7 +8,7 @@
           subtitle=""
         />
 
-        <lazy-card-organization-form-new />
+        <lazy-card-organization-new />
 
         <lazy-card-organization-list />
       </client-only>
