@@ -26,7 +26,7 @@ export default defineVitestConfig({
     coverage: {
       reporter: 'lcov',
       provider: 'v8',
-      include: ['layouts', 'components', 'store', 'pages', 'app'],
+      include: ['components', 'store', 'pages', 'app'],
       all: true
     }
   },
