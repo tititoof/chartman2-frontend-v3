@@ -1,16 +1,16 @@
-import { createVuetify, ThemeDefinition } from 'vuetify';
-import 'vuetify/styles'; // pre-build css styles
+import { createVuetify, ThemeDefinition } from 'vuetify'
+import 'vuetify/styles' // pre-build css styles
 import DayJsAdapter from '@date-io/dayjs'
 
 /* Add all components and directives, for dev & prototyping only. */
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
 
 /* Add build-in icon used internally in various components */
 /* Described in https://next.vuetifyjs.com/en/features/icon-fonts/ */
-import { mdi, aliases as allAliases } from 'vuetify/iconsets/mdi-svg';
+import { mdi, aliases as allAliases } from 'vuetify/iconsets/mdi-svg'
 
-const aliases = allAliases;
+const aliases = allAliases
 
 const sharHubLightTheme: ThemeDefinition = {
   dark: false,
@@ -99,5 +99,5 @@ export default defineNuxtPlugin((nuxtApp) => {
     }
   });
 
-  nuxtApp.vueApp.use(vuetify);
+  nuxtApp.vueApp.use(vuetify)
 });

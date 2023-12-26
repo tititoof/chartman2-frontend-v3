@@ -52,10 +52,8 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/test-utils/module',
     'nuxt-snackbar',
+    '@tresjs/nuxt',
   ],
-  // plugins: [
-  //   { src: '~/node_modules/nuxtjs-phaser', mode: 'client' }
-  // ],
   i18n: {
     langDir: 'locales',
     lazy: true,
@@ -123,5 +121,9 @@ export default defineNuxtConfig({
       }
     },
   },
-  testUtils: {}
+  testUtils: {},
+  tres: {
+    devtools: true,
+    glsl: true,
+  },
 })

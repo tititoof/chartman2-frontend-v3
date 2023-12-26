@@ -1,6 +1,6 @@
 FROM node:18-alpine
 
-RUN npm install -g pnpm@8.10.5
+RUN npm install -g pnpm@8.12.1
 
 WORKDIR /app
 
