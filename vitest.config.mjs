@@ -22,7 +22,7 @@ export default defineVitestConfig({
     include: ['tests/**/*.nuxt.spec.ts'],
     exclude: ['api', '.nuxt', 'server', 'middleware', 'layouts', 'pages', 'tests', '*.config.ts', '*.d.ts', 'app.vue'],
     setupFiles: ['tests/setup/init.ts'],
-    unstubGlobals: true,
+    // unstubGlobals: true,
     coverage: {
       reporter: 'lcov',
       provider: 'v8',

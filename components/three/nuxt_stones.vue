@@ -2,9 +2,11 @@
 import type { Texture } from 'three'
 import { MeshBasicMaterial } from 'three'
 
-const { nodes } = await useGLTF('/textures/nuxt-stones/nuxt-stones.glb')
-const stonesTexture = await useTexture(['/textures/nuxt-stones/RockBaked.png'])
-const littleStonesTexture = await useTexture(['/textures/nuxt-stones/LittleRocksBaked.png'])
+const config = useRuntimeConfig()
+
+const { nodes } = await useGLTF(config.public.appUrl + '/textures/nuxt-stones/nuxt-stones.glb')
+const stonesTexture = await useTexture([config.public.appUrl + '/textures/nuxt-stones/RockBaked.png'])
+const littleStonesTexture = await useTexture([config.public.appUrl + '/textures/nuxt-stones/LittleRocksBaked.png'])
 
 stonesTexture.flipY = false
 littleStonesTexture.flipY = false

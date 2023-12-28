@@ -36,6 +36,7 @@ export default defineNuxtConfig({
     apiBaseUrl: process.env.API_BASE_URL,
     public: {
       apiBaseUrl: process.env.API_BASE_URL,
+      appUrl: process.env.APP_URL,
       appName: process.env.APP_NAME,
       appStorageName: process.env.APP_STORAGE_NAME,
       cryptSecretKey: process.env.CRYPT_SECRET_KEY,
