@@ -39,5 +39,6 @@ export const vuetifyStubs = {
   'v-expansion-panel': true,
   'v-expansion-panel-text': true,
   'v-expansion-panel-title': true,
-  'v-autocomplete': true
+  'v-autocomplete': true,
+  'TresCanvas': true,
 }
