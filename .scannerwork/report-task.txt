@@ -1,0 +1,6 @@
+projectKey=sharehub-frontend-dev
+serverUrl=http://sonarqube:9000
+serverVersion=9.9.3.79811
+dashboardUrl=http://sonarqube:9000/dashboard?id=sharehub-frontend-dev
+ceTaskId=AYy0aMSVq5f3gwCgOul0
+ceTaskUrl=http://sonarqube:9000/api/ce/task?id=AYy0aMSVq5f3gwCgOul0
