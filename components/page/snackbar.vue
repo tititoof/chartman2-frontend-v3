@@ -8,7 +8,7 @@
     <v-icon :icon="icon" />
     {{ message }}
 
-    <template v-slot:actions>
+    <template #actions>
       <v-btn
         density="compact"
         :icon="mdiCloseCircle"
